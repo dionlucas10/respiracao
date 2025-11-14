@@ -115,18 +115,23 @@
 
         .topic-card {
             background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            border-radius: 12px;
-            padding: 20px;
-            border-left: 5px solid #4299e1;
+            border-radius: 20px;
+            padding: 30px;
+            border-left: 8px solid #4299e1;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
         .topic-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
         }
 
         .topic-card::before {
@@ -135,42 +140,143 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #4299e1, #667eea);
+            height: 5px;
+            background: linear-gradient(90deg, #4299e1, #667eea, #764ba2);
+        }
+
+        .topic-card::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(66, 153, 225, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .topic-card:hover::after {
+            transform: scale(1.5);
+            background: radial-gradient(circle, rgba(66, 153, 225, 0.2) 0%, transparent 70%);
         }
 
         .topic-number {
-            display: inline-block;
-            background: #4299e1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
             color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
             font-weight: bold;
-            margin-bottom: 15px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .topic-card:hover .topic-number {
+            transform: rotate(5deg) scale(1.1);
+            box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
         }
 
         .topic-title {
-            font-size: 1.3rem;
+            font-size: 1.6rem;
             font-weight: bold;
             color: #2d3748;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        .topic-card:hover .topic-title {
+            color: #4299e1;
         }
 
         .topic-content {
             color: #4a5568;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .topic-content ul {
-            margin: 10px 0;
-            padding-left: 20px;
+            margin: 15px 0;
+            padding-left: 25px;
         }
 
         .topic-content li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .topic-content li::marker {
+            color: #4299e1;
+            font-weight: bold;
+        }
+
+        .topic-card:hover .topic-content li {
+            transform: translateX(5px);
+        }
+
+        .topic-content strong {
+            color: #2d3748;
+            font-weight: 600;
+            background: linear-gradient(120deg, transparent 0%, rgba(66, 153, 225, 0.1) 50%, transparent 100%);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        .topic-card .card-footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid rgba(66, 153, 225, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .topic-card:hover .card-footer {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .topic-card:hover .card-icon {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .card-action {
+            background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(66, 153, 225, 0.3);
+        }
+
+        .card-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.4);
         }
 
         .interactive-heart {
@@ -951,17 +1057,30 @@
       </div>
      </div>
      <div class="topic-grid">
-      <div class="topic-card">
+      <div class="topic-card" onclick="expandCard(this)">
        <div class="topic-number">
         1
        </div>
        <div class="topic-title">
         Constituição do Miocárdio
        </div>
-       <div class="topic-content"><strong>Tecido muscular cardíaco</strong> - músculo especializado que se contrai involuntariamente e de forma rítmica.
+       <div class="topic-content">
+        <p><strong>Tecido muscular cardíaco</strong> - músculo especializado que se contrai involuntariamente e de forma rítmica.</p>
+        <div class="expanded-content" style="display: none;">
+         <p><strong>🔬 Características especiais:</strong></p>
+         <ul>
+          <li>Células interconectadas por discos intercalares</li>
+          <li>Contração sincronizada e automática</li>
+          <li>Rica vascularização para suprimento energético</li>
+          <li>Resistente à fadiga devido ao metabolismo aeróbico</li>
+         </ul>
+         <p><strong>💡 Curiosidade:</strong> O coração bate cerca de 3 bilhões de vezes durante uma vida!</p>
+        </div>
+       </div>
+       <div class="card-footer"><span class="card-icon">💓</span> <button class="card-action">Explorar</button>
        </div>
       </div>
-      <div class="topic-card">
+      <div class="topic-card" onclick="expandCard(this)">
        <div class="topic-number">
         2
        </div>
@@ -969,6 +1088,7 @@
         Circulação Sistêmica
        </div>
        <div class="topic-content">
+        <p><strong>🔄 Caminho completo do sangue:</strong></p>
         <ul>
          <li>Veia cava superior e inferior</li>
          <li>Átrio direito → Valva tricúspide</li>
@@ -978,9 +1098,20 @@
          <li>Valva mitral → Ventrículo esquerdo</li>
          <li>Valva aórtica → Artéria aorta</li>
         </ul>
+        <div class="expanded-content" style="display: none;">
+         <p><strong>⏱️ Tempo de circulação:</strong> O sangue completa todo o circuito em aproximadamente 60 segundos!</p>
+         <p><strong>📊 Dados impressionantes:</strong></p>
+         <ul>
+          <li>5 litros de sangue circulam pelo corpo</li>
+          <li>100.000 km de vasos sanguíneos</li>
+          <li>Pressão sistólica normal: 120 mmHg</li>
+         </ul>
+        </div>
+       </div>
+       <div class="card-footer"><span class="card-icon">🔄</span> <button class="card-action">Ver Fluxo</button>
        </div>
       </div>
-      <div class="topic-card">
+      <div class="topic-card" onclick="expandCard(this)">
        <div class="topic-number">
         3
        </div>
@@ -988,10 +1119,22 @@
         Função das Valvas
        </div>
        <div class="topic-content">
-        Controlar o fluxo sanguíneo, garantindo que o sangue flua sempre na <strong>direção correta</strong>.
+        <p>Controlar o fluxo sanguíneo, garantindo que o sangue flua sempre na <strong>direção correta</strong>.</p>
+        <div class="expanded-content" style="display: none;">
+         <p><strong>🚪 Tipos de valvas:</strong></p>
+         <ul>
+          <li><strong>Tricúspide:</strong> Entre átrio e ventrículo direito</li>
+          <li><strong>Pulmonar:</strong> Saída do ventrículo direito</li>
+          <li><strong>Mitral (Bicúspide):</strong> Entre átrio e ventrículo esquerdo</li>
+          <li><strong>Aórtica:</strong> Saída do ventrículo esquerdo</li>
+         </ul>
+         <p><strong>⚠️ Problemas valvares:</strong> Estenose (estreitamento) ou insuficiência (vazamento)</p>
+        </div>
+       </div>
+       <div class="card-footer"><span class="card-icon">🚪</span> <button class="card-action">Detalhes</button>
        </div>
       </div>
-      <div class="topic-card">
+      <div class="topic-card" onclick="expandCard(this)">
        <div class="topic-number">
         4
        </div>
@@ -999,13 +1142,25 @@
         Primeira Bulha (B1)
        </div>
        <div class="topic-content">
+        <p><strong>🔊 Som cardíaco fundamental:</strong></p>
         <ul>
          <li>Ocorre no início da contração ventricular</li>
          <li>Som do fechamento das valvas atrioventriculares (mitral e tricúspide)</li>
         </ul>
+        <div class="expanded-content" style="display: none;">
+         <p><strong>🎵 Características sonoras:</strong></p>
+         <ul>
+          <li>Som mais grave e prolongado</li>
+          <li>Melhor audível no ápice cardíaco</li>
+          <li>Coincide com o pulso arterial</li>
+         </ul>
+         <p><strong>🩺 Alterações patológicas:</strong> Sopros podem indicar problemas valvares</p>
+        </div>
+       </div>
+       <div class="card-footer"><span class="card-icon">🔊</span> <button class="card-action">Escutar</button>
        </div>
       </div>
-      <div class="topic-card">
+      <div class="topic-card" onclick="expandCard(this)">
        <div class="topic-number">
         5
        </div>
@@ -1013,15 +1168,28 @@
         Tetralogia de Fallot
        </div>
        <div class="topic-content">
+        <p><strong>🫀 Cardiopatia congênita complexa:</strong></p>
         <ul>
          <li>Comunicação interventricular</li>
          <li>Aorta dextroposicionada</li>
          <li>Estenose pulmonar</li>
          <li>Hipertrofia do ventrículo direito</li>
         </ul>
+        <div class="expanded-content" style="display: none;">
+         <p><strong>👶 Manifestações clínicas:</strong></p>
+         <ul>
+          <li>Cianose (coloração azulada)</li>
+          <li>Dificuldade respiratória</li>
+          <li>Crescimento retardado</li>
+          <li>Posição de cócoras para alívio</li>
+         </ul>
+         <p><strong>🏥 Tratamento:</strong> Correção cirúrgica geralmente antes dos 2 anos</p>
+        </div>
+       </div>
+       <div class="card-footer"><span class="card-icon">🫀</span> <button class="card-action">Estudar</button>
        </div>
       </div>
-      <div class="topic-card">
+      <div class="topic-card" onclick="expandCard(this)">
        <div class="topic-number">
         6
        </div>
@@ -1029,11 +1197,23 @@
         Hemofilia
        </div>
        <div class="topic-content">
+        <p><strong>🧬 Distúrbio genético da coagulação:</strong></p>
         <ul>
          <li>Doença genética ligada ao cromossomo X</li>
          <li>Homens: apenas 1 X → manifestam a doença</li>
          <li>Mulheres: 2 X → podem ser portadoras</li>
         </ul>
+        <div class="expanded-content" style="display: none;">
+         <p><strong>🩸 Tipos de hemofilia:</strong></p>
+         <ul>
+          <li><strong>Hemofilia A:</strong> Deficiência do fator VIII (mais comum)</li>
+          <li><strong>Hemofilia B:</strong> Deficiência do fator IX</li>
+          <li><strong>Hemofilia C:</strong> Deficiência do fator XI (mais rara)</li>
+         </ul>
+         <p><strong>💊 Tratamento:</strong> Reposição dos fatores de coagulação</p>
+        </div>
+       </div>
+       <div class="card-footer"><span class="card-icon">🧬</span> <button class="card-action">Genética</button>
        </div>
       </div>
      </div>
@@ -2815,9 +2995,30 @@
             }
         }
 
+        // Função para expandir cards
+        function expandCard(card) {
+            const expandedContent = card.querySelector('.expanded-content');
+            const cardAction = card.querySelector('.card-action');
+            
+            if (expandedContent.style.display === 'none') {
+                expandedContent.style.display = 'block';
+                expandedContent.style.animation = 'fadeIn 0.5s ease-in';
+                cardAction.textContent = 'Recolher';
+                card.style.minHeight = 'auto';
+            } else {
+                expandedContent.style.display = 'none';
+                cardAction.textContent = cardAction.textContent.includes('Explorar') ? 'Explorar' : 
+                                       cardAction.textContent.includes('Ver') ? 'Ver Fluxo' :
+                                       cardAction.textContent.includes('Detalhes') ? 'Detalhes' :
+                                       cardAction.textContent.includes('Escutar') ? 'Escutar' :
+                                       cardAction.textContent.includes('Estudar') ? 'Estudar' : 'Genética';
+                card.style.minHeight = '280px';
+            }
+        }
+
         // Inicializar progresso
         updateProgress();
         updateQuizStats();
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99e971d876b02d34',t:'MTc2MzE1NDA5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99e987298783f1f3',t:'MTc2MzE1NDk2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
