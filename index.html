@@ -1,3024 +1,1358 @@
 <!doctype html>
 <html lang="pt-BR">
- <head>
+
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sistema Cardiovascular e Respiratório</title>
-  <script src="/_sdk/element_sdk.js"></script>
-  <style>
-        body {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100%;
-            color: #2d3748;
-        }
+  <title>Ajuda Para a Prova</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="main-title" id="siteTitle">Sistema Cardiovascular</h1>
+      <p class="welcome-text" id="welcomeMessage">Explore de forma interativa o sistema que mantém a vida funcionando!
+      </p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </header>
+    <nav class="system-tabs"><button class="tab-button active" onclick="showSection('cardiovascular')">💓 Sistema
+        Cardiovascular</button> <button class="tab-button" onclick="showSection('sangue')">🩸 Sangue e
+        Linfático</button> <button class="tab-button" onclick="showSection('ciclo')">⚡ Ciclo Cardíaco</button> <button
+        class="tab-button" onclick="showSection('nervoso')">🧠 Sistema Nervoso</button> <button class="tab-button"
+        onclick="showSection('jogos')">🎮 Jogos Educativos</button> <button class="tab-button"
+        onclick="showSection('quiz')">🧠 Quiz Interativo</button>
+    </nav>
+    <main><!-- Sistema Cardiovascular -->
+      <section id="cardiovascular" class="content-section active">
+        <h2 class="section-title">Sistema Cardiovascular</h2>
+        <div class="interactive-heart">
+          <h3>💓 Sistema Cardiovascular Completo</h3>
+          <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+            <p><strong>🫀 O Sistema Cardiovascular é composto por:</strong></p>
+            <ul style="text-align: left; margin: 15px 0;">
+              <li><strong>Coração</strong> - bomba muscular</li>
+              <li><strong>Vasos sanguíneos</strong> - artérias, veias e capilares</li>
+              <li><strong>Sangue</strong> - fluido transportador</li>
+            </ul>
+            <p><strong>🎯 Função principal:</strong> Transportar oxigênio, nutrientes, hormônios e remover resíduos do
+              organismo, garantindo o funcionamento adequado de todos os tecidos.</p>
+          </div>
+          <svg class="heart-svg heart-beat" viewbox="0 0 100 100" onclick="animateHeart()">
+            <path
+              d="M50,85 C50,85 20,65 20,45 C20,35 30,25 40,25 C45,25 50,30 50,30 C50,30 55,25 60,25 C70,25 80,35 80,45 C80,65 50,85 50,85 Z"
+              fill="#e53e3e" stroke="#c53030" stroke-width="2" />
+            <circle cx="35" cy="40" r="8" fill="#fc8181" opacity="0.7" />
+            <circle cx="65" cy="40" r="8" fill="#fc8181" opacity="0.7" />
+          </svg>
+          <p>Clique no coração para ver a animação!</p>
+          <div class="heart-info" id="heartInfo"
+            style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.8); border-radius: 10px; display: none;">
+            <strong>💓 Batimentos por minuto:</strong> <span id="heartRate">72</span><br><strong>🩸 Sangue bombeado por
+              dia:</strong> ~7.500 litros<br><strong>⚡ Batimentos por dia:</strong> ~100.000
+          </div>
+        </div>
+        <div class="interactive-elements">
+          <div class="element-card" onclick="showCirculationFlow()">
+            <h4>🔄 Fluxo Circulatório</h4>
+            <p>Clique para ver o caminho do sangue</p>
+            <div class="circulation-flow" id="circulationFlow" style="display: none; margin-top: 10px;">
+              <div class="flow-step active" id="step1">
+                1. Veia Cava → Átrio Direito
+              </div>
+              <div class="flow-step" id="step2">
+                2. Átrio Direito → Ventrículo Direito
+              </div>
+              <div class="flow-step" id="step3">
+                3. Ventrículo Direito → Pulmões
+              </div>
+              <div class="flow-step" id="step4">
+                4. Pulmões → Átrio Esquerdo
+              </div>
+              <div class="flow-step" id="step5">
+                5. Átrio Esquerdo → Ventrículo Esquerdo
+              </div>
+              <div class="flow-step" id="step6">
+                6. Ventrículo Esquerdo → Corpo
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-grid">
+          <div class="topic-card" onclick="expandCard(this)">
+            <div class="topic-number">
+              1
+            </div>
+            <div class="topic-title">
+              🩸 Pressão Arterial e Hipertensão
+            </div>
+            <div class="topic-content">
+              <p><strong>Pressão Arterial:</strong> força que o sangue exerce contra as paredes das artérias.</p>
+              <p><strong>Exemplo:</strong> 120/80 mmHg (sistólica/diastólica)</p>
+              <div class="expanded-content" style="display: none;">
+                <p><strong>📊 Depende de:</strong></p>
+                <ul>
+                  <li><strong>Débito cardíaco:</strong> quantidade de sangue bombeada por minuto</li>
+                  <li><strong>Resistência vascular periférica:</strong> dificuldade do sangue para circular</li>
+                </ul>
+                <p><strong>⚠️ Hipertensão:</strong> pressão ≥ 140/90 mmHg persistente</p>
+                <p><strong>🎯 Causas:</strong> genética, obesidade, sedentarismo, sal, estresse, tabagismo</p>
+                <p><strong>💥 Riscos:</strong> AVC, infarto, insuficiência renal/cardíaca, aneurismas</p>
+                <p><strong>🚨 Sintomas:</strong> dor de cabeça, tontura, zumbido, falta de ar, palpitações</p>
+              </div>
+            </div>
+            <div class="card-footer"><span class="card-icon">🩸</span> <button class="card-action">Explorar</button>
+            </div>
+          </div>
+          <div class="topic-card" onclick="expandCard(this)">
+            <div class="topic-number">
+              2
+            </div>
+            <div class="topic-title">
+              ❤️‍🔥 Ciclo Cardíaco
+            </div>
+            <div class="topic-content">
+              <p><strong>Conjunto de eventos durante um batimento cardíaco</strong></p>
+              <p><strong>3 fases principais:</strong></p>
+              <ul>
+                <li><strong>Diástole:</strong> coração relaxa e enche-se</li>
+                <li><strong>Sístole Atrial:</strong> átrios contraem</li>
+                <li><strong>Sístole Ventricular:</strong> ventrículos expulsam sangue</li>
+              </ul>
+              <div class="expanded-content" style="display: none;">
+                <p><strong>🔄 Detalhamento das fases:</strong></p>
+                <ul>
+                  <li><strong>1. Diástole (relaxamento):</strong> Coração relaxa e enche-se de sangue</li>
+                  <li><strong>2. Sístole Atrial:</strong> Átrios empurram sangue para os ventrículos</li>
+                  <li><strong>3. Sístole Ventricular:</strong> Ventrículos expulsam sangue (direito → pulmões, esquerdo
+                    → corpo)</li>
+                </ul>
+                <p><strong>🚪 Valvas cardíacas:</strong> mitral, tricúspide, aórtica, pulmonar abrem e fecham para
+                  garantir fluxo unidirecional</p>
+              </div>
+            </div>
+            <div class="card-footer"><span class="card-icon">❤️‍🔥</span> <button class="card-action">Ver Ciclo</button>
+            </div>
+          </div>
+          <div class="topic-card" onclick="expandCard(this)">
+            <div class="topic-number">
+              3
+            </div>
+            <div class="topic-title">
+              ❤️‍🩹 Aterosclerose
+            </div>
+            <div class="topic-content">
+              <p><strong>Acúmulo de gordura, colesterol e outras substâncias nas paredes das artérias</strong></p>
+              <p>Forma <strong>placas ateromatosas</strong> que causam estreitamento do vaso</p>
+              <div class="expanded-content" style="display: none;">
+                <p><strong>⚠️ Consequências:</strong></p>
+                <ul>
+                  <li>Estreitamento do vaso</li>
+                  <li>Redução do fluxo sanguíneo</li>
+                  <li>Inflamação da parede arterial</li>
+                </ul>
+                <p><strong>💥 Pode causar:</strong> Angina, Infarto, AVC isquêmico, Doença arterial periférica</p>
+                <p><strong>🎯 Fatores de risco:</strong></p>
+                <ul>
+                  <li>Colesterol alto</li>
+                  <li>Hipertensão</li>
+                  <li>Tabagismo</li>
+                  <li>Diabetes</li>
+                  <li>Obesidade</li>
+                  <li>Sedentarismo</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card-footer"><span class="card-icon">❤️‍🩹</span> <button class="card-action">Estudar</button>
+            </div>
+          </div>
+          <div class="topic-card" onclick="expandCard(this)">
+            <div class="topic-number">
+              4
+            </div>
+            <div class="topic-title">
+              ❤️‍🩺 Infarto Agudo do Miocárdio
+            </div>
+            <div class="topic-content">
+              <p><strong>Morte de parte do músculo cardíaco</strong> devido à interrupção prolongada do fluxo sanguíneo
+              </p>
+              <p><strong>Causa:</strong> obstrução de artéria coronária (placa + coágulo)</p>
+              <div class="expanded-content" style="display: none;">
+                <p><strong>🚨 Sintomas principais:</strong></p>
+                <ul>
+                  <li>Dor intensa no peito (pressão, aperto)</li>
+                  <li>Dor irradiada para braço esquerdo, mandíbula ou costas</li>
+                  <li>Sudorese fria</li>
+                  <li>Falta de ar</li>
+                  <li>Náuseas</li>
+                </ul>
+                <p><strong>⚠️ Complicações:</strong></p>
+                <ul>
+                  <li>Arritmias</li>
+                  <li>Insuficiência cardíaca</li>
+                  <li>Choque cardiogênico</li>
+                  <li>Morte súbita</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card-footer"><span class="card-icon">❤️‍🩺</span> <button
+                class="card-action">Emergência</button>
+            </div>
+          </div>
+          <div class="topic-card" onclick="expandCard(this)">
+            <div class="topic-number">
+              5
+            </div>
+            <div class="topic-title">
+              🧠 AVC (Acidente Vascular Cerebral)
+            </div>
+            <div class="topic-content">
+              <p><strong>Interrupção do fluxo de sangue para o cérebro</strong></p>
+              <p><strong>Tipos:</strong> Isquêmico (85%) - entupimento | Hemorrágico - sangramento</p>
+              <div class="expanded-content" style="display: none;">
+                <p><strong>🚨 Sintomas FAST:</strong></p>
+                <ul>
+                  <li><strong>Face:</strong> boca torta</li>
+                  <li><strong>Arm:</strong> fraqueza em um braço</li>
+                  <li><strong>Speech:</strong> fala alterada</li>
+                  <li><strong>Time:</strong> tempo é vital</li>
+                </ul>
+                <p><strong>➕ Outros sintomas:</strong> tontura, perda de visão súbita, dor de cabeça intensa</p>
+                <p><strong>🎯 Fatores de risco:</strong> hipertensão, aterosclerose, diabetes, tabagismo, sedentarismo
+                </p>
+              </div>
+            </div>
+            <div class="card-footer"><span class="card-icon">🧠</span> <button class="card-action">FAST</button>
+            </div>
+          </div>
+          <div class="topic-card" onclick="expandCard(this)">
+            <div class="topic-number">
+              6
+            </div>
+            <div class="topic-title">
+              🧠 TCE (Traumatismo Cranioencefálico)
+            </div>
+            <div class="topic-content">
+              <p><strong>Qualquer lesão no crânio ou encéfalo</strong> causada por impacto, colisão, queda ou agressão
+              </p>
+              <p><strong>Tipos:</strong> Leve (concussão), Moderado, Grave</p>
+              <div class="expanded-content" style="display: none;">
+                <p><strong>⚠️ Possíveis consequências:</strong></p>
+                <ul>
+                  <li>Hematomas (epidural, subdural, intracerebral)</li>
+                  <li>Edema cerebral</li>
+                  <li>Perda de consciência</li>
+                  <li>Déficits neurológicos</li>
+                  <li>Convulsões</li>
+                </ul>
+                <p><strong>🏥 Avaliação:</strong> Escala de Glasgow para classificar gravidade</p>
+                <p><strong>🚨 Sinais de alerta:</strong> vômitos, confusão mental, sonolência excessiva</p>
+              </div>
+            </div>
+            <div class="card-footer"><span class="card-icon">🧠</span> <button class="card-action">Trauma</button>
+            </div>
+          </div>
+          <div class="topic-card" onclick="expandCard(this)">
+            <div class="topic-number">
+              7
+            </div>
+            <div class="topic-title">
+              🩸 Hemofilia
+            </div>
+            <div class="topic-content">
+              <p><strong>Doença hereditária</strong> que causa dificuldade de coagulação do sangue</p>
+              <p><strong>Causa:</strong> falta de fatores de coagulação</p>
+              <div class="expanded-content" style="display: none;">
+                <p><strong>🧬 Tipos principais:</strong></p>
+                <ul>
+                  <li><strong>Hemofilia A:</strong> deficiência do fator VIII</li>
+                  <li><strong>Hemofilia B:</strong> deficiência do fator IX</li>
+                </ul>
+                <p><strong>🩸 Características:</strong></p>
+                <ul>
+                  <li>Hemorragias prolongadas</li>
+                  <li>Sangramentos articulares (hemartrose)</li>
+                  <li>Hematomas frequentes</li>
+                  <li>Risco aumentado em cirurgias e traumas</li>
+                </ul>
+                <p><strong>💊 Tratamento:</strong></p>
+                <ul>
+                  <li>Reposição dos fatores de coagulação</li>
+                  <li>Cuidados para evitar traumas</li>
+                  <li>Controle rigoroso em procedimentos invasivos</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card-footer"><span class="card-icon">🩸</span> <button class="card-action">Coagulação</button>
+            </div>
+          </div>
+        </div>
+      </section><!-- Sangue e Sistema Linfático -->
+      <section id="sangue" class="content-section">
+        <h2 class="section-title">Sangue e Sistema Linfático</h2>
+        <div class="topic-grid">
+          <div class="topic-card">
+            <div class="topic-number">
+              1
+            </div>
+            <div class="topic-title">
+              Funções do Sangue
+            </div>
+            <div class="topic-content">
+              <ul>
+                <li><strong>Transporte</strong> - nutrientes e oxigênio</li>
+                <li><strong>Homeostase</strong> - equilíbrio interno</li>
+                <li><strong>Proteção</strong> - defesa imunológica</li>
+              </ul>
+            </div>
+          </div>
+          <div class="topic-card">
+            <div class="topic-number">
+              2
+            </div>
+            <div class="topic-title">
+              Primeiro Órgão Embrionário
+            </div>
+            <div class="topic-content">
+              O <strong>coração</strong> é o primeiro órgão a se formar no embrião, demonstrando sua importância vital.
+            </div>
+          </div>
+          <div class="topic-card">
+            <div class="topic-number">
+              3
+            </div>
+            <div class="topic-title">
+              Função da Linfa
+            </div>
+            <div class="topic-content">
+              <ul>
+                <li>Auxilia na circulação de líquidos corporais</li>
+                <li>Atua na defesa contra agentes patogênicos</li>
+              </ul>
+            </div>
+          </div>
+          <div class="topic-card">
+            <div class="topic-number">
+              4
+            </div>
+            <div class="topic-title">
+              Sistema Rh
+            </div>
+            <div class="topic-content">
+              Estudado pela primeira vez no <strong>macaco Rhesus</strong>, daí o nome do sistema.
+            </div>
+          </div>
+          <div class="topic-card">
+            <div class="topic-number">
+              5
+            </div>
+            <div class="topic-title">
+              Síndrome de Marfan
+            </div>
+            <div class="topic-content">
+              <ul>
+                <li>Doença genética - mutação no cromossomo 15</li>
+                <li>Padrão autossômico dominante</li>
+                <li>Alterações: dilatação da aorta, aneurisma</li>
+                <li>Prolapso da valva mitral</li>
+              </ul>
+            </div>
+          </div>
+          <div class="topic-card">
+            <div class="topic-number">
+              6
+            </div>
+            <div class="topic-title">
+              Coração Artificial Brasileiro
+            </div>
+            <div class="topic-content">
+              <ul>
+                <li>Mais leve e barato</li>
+                <li>Produção simples</li>
+                <li>Menor risco de rejeição</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section><!-- Ciclo Cardíaco -->
+      <section id="ciclo" class="content-section">
+        <h2 class="section-title">Sistema Cardiovascular - Ciclo Cardíaco</h2>
+        <div class="topic-grid">
+          <div class="topic-card">
+            <div class="topic-number">
+              1
+            </div>
+            <div class="topic-title">
+              Ciclo Cardíaco
+            </div>
+            <div class="topic-content">
+              Vai do início de um batimento até o início do próximo. Iniciado pelo <strong>potencial de ação espontâneo
+                do nodo sinusal</strong>.
+            </div>
+          </div>
+          <div class="topic-card">
+            <div class="topic-number">
+              2
+            </div>
+            <div class="topic-title">
+              Ordem do Estímulo Cardíaco
+            </div>
+            <div class="topic-content">
+              <ol>
+                <li>Nodo sinusal</li>
+                <li>Vias internodais</li>
+                <li>Nodo atrioventricular</li>
+                <li>Feixe de His</li>
+                <li>Fibras de Purkinje</li>
+              </ol>
+            </div>
+          </div>
+          <div class="topic-card">
+            <div class="topic-number">
+              3
+            </div>
+            <div class="topic-title">
+              Intervalo PR
+            </div>
+            <div class="topic-content">
+              <ul>
+                <li>Tempo entre contração atrial e ventricular</li>
+                <li>Duração normal: <strong>0,12 a 0,20 segundos</strong></li>
+              </ul>
+            </div>
+          </div>
+          <div class="topic-card">
+            <div class="topic-number">
+              4
+            </div>
+            <div class="topic-title">
+              Função das Artérias
+            </div>
+            <div class="topic-content">
+              Transportar sangue sob <strong>alta pressão</strong> até os tecidos do corpo.
+            </div>
+          </div>
+          <div class="topic-card">
+            <div class="topic-number">
+              5
+            </div>
+            <div class="topic-title">
+              Sistema Venoso
+            </div>
+            <div class="topic-content">
+              <ul>
+                <li>Caracterizado por <strong>baixa pressão</strong></li>
+                <li>Paredes mais finas que as artérias</li>
+              </ul>
+            </div>
+          </div>
+          <div class="topic-card">
+            <div class="topic-number">
+              6
+            </div>
+            <div class="topic-title">
+              Marca-passo
+            </div>
+            <div class="topic-content">
+              Mantém o ritmo cardíaco quando o coração falha em fazê-lo naturalmente. Prevenção da morte súbita.
+            </div>
+          </div>
+        </div>
+      </section><!-- Sistema Nervoso -->
+      <section id="nervoso" class="content-section">
+        <h2 class="section-title">🧠 Sistema Nervoso</h2>
+        <div class="interactive-elements">
+          <div class="element-card" onclick="showNervousSystemDivision()">
+            <h4>🧠 Divisões do Sistema Nervoso</h4>
+            <p>Clique para ver a organização completa</p>
+            <div class="nervous-division" id="nervousDivision" style="display: none; margin-top: 10px;">
+              <div class="flow-step active" id="snc-step">
+                🧠 Sistema Nervoso Central (SNC)
+              </div>
+              <div class="flow-step" id="snp-step">
+                🔌 Sistema Nervoso Periférico (SNP)
+              </div>
+              <div class="flow-step" id="encefalo-step">
+                🧠 Encéfalo (Cérebro, Cerebelo, Tronco)
+              </div>
+              <div class="flow-step" id="medula-step">
+                🦴 Medula Espinhal
+              </div>
+              <div class="flow-step" id="nervos-step">
+                ⚡ Nervos e Gânglios
+              </div>
+            </div>
+          </div>
+          <div class="element-card" onclick="showCranialNerves()">
+            <h4>🔢 12 Nervos Cranianos</h4>
+            <p>Explore os nervos que saem do encéfalo</p>
+            <div class="cranial-nerves" id="cranialNerves" style="display: none; margin-top: 10px; text-align: left;">
+              <div class="nerve-item">
+                I - Olfatório 👃
+              </div>
+              <div class="nerve-item">
+                II - Óptico 👁️
+              </div>
+              <div class="nerve-item">
+                III - Oculomotor 👀
+              </div>
+              <div class="nerve-item">
+                IV - Troclear 🔄
+              </div>
+              <div class="nerve-item">
+                V - Trigêmeo 😬
+              </div>
+              <div class="nerve-item">
+                VI - Abducente ↔️
+              </div>
+              <div class="nerve-item">
+                VII - Facial 😊
+              </div>
+              <div class="nerve-item">
+                VIII - Vestibulococlear 👂
+              </div>
+              <div class="nerve-item">
+                IX - Glossofaríngeo 👅
+              </div>
+              <div class="nerve-item">
+                X - Vago 💓
+              </div>
+              <div class="nerve-item">
+                XI - Acessório 💪
+              </div>
+              <div class="nerve-item">
+                XII - Hipoglosso 🗣️
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-grid">
+          <div class="topic-card" onclick="expandCard(this)">
+            <div class="topic-number">
+              1
+            </div>
+            <div class="topic-title">
+              Sistema Nervoso Central (SNC)
+            </div>
+            <div class="topic-content">
+              <p>Formado pelo <strong>encéfalo</strong> e <strong>medula espinhal</strong>. Centro de controle e
+                processamento de todas as informações.</p>
+              <div class="expanded-content" style="display: none;">
+                <p><strong>🧠 Componentes do Encéfalo:</strong></p>
+                <ul>
+                  <li><strong>Cérebro:</strong> Pensamento, memória, linguagem, emoções</li>
+                  <li><strong>Cerebelo:</strong> Equilíbrio, postura, coordenação motora</li>
+                  <li><strong>Tronco Encefálico:</strong> Funções vitais automáticas</li>
+                </ul>
+                <p><strong>🦴 Medula Espinhal:</strong></p>
+                <ul>
+                  <li>Conduz mensagens entre cérebro e corpo</li>
+                  <li>Controla reflexos rápidos e automáticos</li>
+                  <li>Protegida pela coluna vertebral</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card-footer"><span class="card-icon">🧠</span> <button class="card-action">Explorar</button>
+            </div>
+          </div>
+          <div class="topic-card" onclick="expandCard(this)">
+            <div class="topic-number">
+              2
+            </div>
+            <div class="topic-title">
+              Sistema Nervoso Periférico (SNP)
+            </div>
+            <div class="topic-content">
+              <p>Formado por <strong>nervos</strong> e <strong>gânglios</strong> que conectam o SNC ao resto do corpo.
+              </p>
+              <div class="expanded-content" style="display: none;">
+                <p><strong>🔌 Divisões do SNP:</strong></p>
+                <ul>
+                  <li><strong>Sistema Somático:</strong> Controle voluntário dos músculos</li>
+                  <li><strong>Sistema Autônomo:</strong> Funções involuntárias</li>
+                </ul>
+                <p><strong>⚡ Sistema Autônomo:</strong></p>
+                <ul>
+                  <li><strong>Simpático:</strong> "Luta ou fuga" - acelera funções</li>
+                  <li><strong>Parassimpático:</strong> "Descanso e digestão" - desacelera</li>
+                  <li><strong>Entérico:</strong> Controla o sistema digestivo</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card-footer"><span class="card-icon">🔌</span> <button class="card-action">Ver Detalhes</button>
+            </div>
+          </div>
+          <div class="topic-card" onclick="expandCard(this)">
+            <div class="topic-number">
+              3
+            </div>
+            <div class="topic-title">
+              Funções do Cérebro
+            </div>
+            <div class="topic-content">
+              <p>Centro de controle superior responsável por <strong>pensamento, memória, linguagem e emoções</strong>.
+              </p>
+              <div class="expanded-content" style="display: none;">
+                <p><strong>🧠 Lobos Cerebrais:</strong></p>
+                <ul>
+                  <li><strong>Frontal:</strong> Personalidade, planejamento, movimento</li>
+                  <li><strong>Parietal:</strong> Sensações táteis, orientação espacial</li>
+                  <li><strong>Temporal:</strong> Audição, linguagem, memória</li>
+                  <li><strong>Occipital:</strong> Processamento visual</li>
+                </ul>
+                <p><strong>💡 Curiosidades:</strong></p>
+                <ul>
+                  <li>86 bilhões de neurônios</li>
+                  <li>Consome 20% da energia do corpo</li>
+                  <li>Pesa cerca de 1,4 kg</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card-footer"><span class="card-icon">🧠</span> <button class="card-action">Estudar</button>
+            </div>
+          </div>
+          <div class="topic-card" onclick="expandCard(this)">
+            <div class="topic-number">
+              4
+            </div>
+            <div class="topic-title">
+              Cerebelo
+            </div>
+            <div class="topic-content">
+              <p>Responsável pelo <strong>equilíbrio, postura e coordenação</strong> dos movimentos finos.</p>
+              <div class="expanded-content" style="display: none;">
+                <p><strong>⚖️ Funções principais:</strong></p>
+                <ul>
+                  <li>Manutenção do equilíbrio corporal</li>
+                  <li>Coordenação de movimentos precisos</li>
+                  <li>Controle da postura</li>
+                  <li>Aprendizado motor</li>
+                </ul>
+                <p><strong>🎯 Características:</strong></p>
+                <ul>
+                  <li>Localizado na parte posterior do crânio</li>
+                  <li>Possui mais neurônios que o cérebro</li>
+                  <li>Lesões causam ataxia (descoordenação)</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card-footer"><span class="card-icon">⚖️</span> <button class="card-action">Coordenar</button>
+            </div>
+          </div>
+          <div class="topic-card" onclick="expandCard(this)">
+            <div class="topic-number">
+              5
+            </div>
+            <div class="topic-title">
+              Tronco Encefálico
+            </div>
+            <div class="topic-content">
+              <p>Controla <strong>funções vitais automáticas</strong> como respiração, batimentos cardíacos e pressão
+                arterial.</p>
+              <div class="expanded-content" style="display: none;">
+                <p><strong>🏗️ Partes do Tronco:</strong></p>
+                <ul>
+                  <li><strong>Bulbo (Medula Oblonga):</strong> Respiração, batimentos cardíacos</li>
+                  <li><strong>Ponte:</strong> Sono, despertar, coordenação</li>
+                  <li><strong>Mesencéfalo:</strong> Reflexos visuais e auditivos</li>
+                </ul>
+                <p><strong>⚠️ Importância vital:</strong></p>
+                <ul>
+                  <li>Lesões podem ser fatais</li>
+                  <li>Controla reflexos de proteção</li>
+                  <li>Regula estados de consciência</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card-footer"><span class="card-icon">🏗️</span> <button class="card-action">Vital</button>
+            </div>
+          </div>
+          <div class="topic-card" onclick="expandCard(this)">
+            <div class="topic-number">
+              6
+            </div>
+            <div class="topic-title">
+              Nervos Cranianos
+            </div>
+            <div class="topic-content">
+              <p><strong>12 pares de nervos</strong> que saem diretamente do encéfalo, controlando funções sensoriais e
+                motoras da cabeça.</p>
+              <div class="expanded-content" style="display: none;">
+                <p><strong>👃 Nervos Sensoriais:</strong></p>
+                <ul>
+                  <li><strong>I - Olfatório:</strong> Olfato</li>
+                  <li><strong>II - Óptico:</strong> Visão</li>
+                  <li><strong>VIII - Vestibulococlear:</strong> Audição e equilíbrio</li>
+                </ul>
+                <p><strong>💪 Nervos Motores:</strong></p>
+                <ul>
+                  <li><strong>III - Oculomotor:</strong> Movimento dos olhos</li>
+                  <li><strong>IV - Troclear:</strong> Músculo oblíquo superior</li>
+                  <li><strong>VI - Abducente:</strong> Músculo reto lateral</li>
+                  <li><strong>XI - Acessório:</strong> Músculos do pescoço</li>
+                  <li><strong>XII - Hipoglosso:</strong> Movimentos da língua</li>
+                </ul>
+                <p><strong>🔄 Nervos Mistos:</strong></p>
+                <ul>
+                  <li><strong>V - Trigêmeo:</strong> Sensibilidade facial e mastigação</li>
+                  <li><strong>VII - Facial:</strong> Expressão facial e paladar</li>
+                  <li><strong>IX - Glossofaríngeo:</strong> Paladar e deglutição</li>
+                  <li><strong>X - Vago:</strong> Funções viscerais</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card-footer"><span class="card-icon">🔢</span> <button class="card-action">Memorizar</button>
+            </div>
+          </div>
+        </div>
+      </section><!-- Jogos Educativos -->
+      <section id="jogos" class="content-section">
+        <h2 class="section-title">🎮 Jogos Educativos Interativos</h2>
+        <div class="games-grid"><!-- Jogo da Memória -->
+          <div class="game-card">
+            <h3>🧠 Jogo da Memória - Anatomia</h3>
+            <p>Encontre os pares de estruturas anatômicas!</p>
+            <div class="memory-game" id="memoryGame">
+              <div class="memory-stats"><span>Tentativas: <strong id="memoryAttempts">0</strong></span> <span>Pares:
+                  <strong id="memoryPairs">0/8</strong></span> <span>Tempo: <strong
+                    id="memoryTime">00:00</strong></span>
+              </div>
+              <div class="memory-board" id="memoryBoard"></div><button class="game-btn" onclick="startMemoryGame()">🎯
+                Iniciar Jogo</button>
+            </div>
+          </div><!-- Simulador de Batimentos -->
+          <div class="game-card">
+            <h3>💓 Simulador de Batimentos</h3>
+            <p>Controle a frequência cardíaca e veja os efeitos!</p>
+            <div class="heartbeat-simulator">
+              <div class="heart-display">
+                <svg class="sim-heart" viewbox="0 0 100 100" id="simHeart">
+                  <path
+                    d="M50,85 C50,85 20,65 20,45 C20,35 30,25 40,25 C45,25 50,30 50,30 C50,30 55,25 60,25 C70,25 80,35 80,45 C80,65 50,85 50,85 Z"
+                    fill="#e53e3e" stroke="#c53030" stroke-width="2" />
+                </svg>
+                <div class="bpm-display" id="bpmDisplay">
+                  72 BPM
+                </div>
+              </div>
+              <div class="heart-controls"><label>Frequência Cardíaca:</label> <input type="range" id="heartRateSlider"
+                  min="40" max="180" value="72" oninput="updateHeartRate(this.value)">
+                <div class="heart-info-panel" id="heartInfoPanel">
+                  <div class="info-item"><span class="info-label">Estado:</span> <span class="info-value"
+                      id="heartState">Normal</span>
+                  </div>
+                  <div class="info-item"><span class="info-label">Condição:</span> <span class="info-value"
+                      id="heartCondition">Repouso</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- Quebra-Cabeça do Sistema Circulatório -->
+          <div class="game-card">
+            <h3>🧩 Quebra-Cabeça Circulatório</h3>
+            <p>Monte o caminho do sangue na ordem correta!</p>
+            <div class="puzzle-game">
+              <div class="puzzle-target" id="puzzleTarget">
+                <div class="target-slot" data-correct="1">
+                  1. Início
+                </div>
+                <div class="target-slot" data-correct="2">
+                  2. ?
+                </div>
+                <div class="target-slot" data-correct="3">
+                  3. ?
+                </div>
+                <div class="target-slot" data-correct="4">
+                  4. ?
+                </div>
+                <div class="target-slot" data-correct="5">
+                  5. ?
+                </div>
+                <div class="target-slot" data-correct="6">
+                  6. Final
+                </div>
+              </div>
+              <div class="puzzle-pieces" id="puzzlePieces">
+                <div class="puzzle-piece" draggable="true" data-value="1">
+                  Veia Cava → Átrio Direito
+                </div>
+                <div class="puzzle-piece" draggable="true" data-value="2">
+                  Átrio Direito → Ventrículo Direito
+                </div>
+                <div class="puzzle-piece" draggable="true" data-value="3">
+                  Ventrículo Direito → Pulmões
+                </div>
+                <div class="puzzle-piece" draggable="true" data-value="4">
+                  Pulmões → Átrio Esquerdo
+                </div>
+                <div class="puzzle-piece" draggable="true" data-value="5">
+                  Átrio Esquerdo → Ventrículo Esquerdo
+                </div>
+                <div class="puzzle-piece" draggable="true" data-value="6">
+                  Ventrículo Esquerdo → Corpo
+                </div>
+              </div><button class="game-btn" onclick="resetPuzzle()">🔄 Reiniciar</button>
+              <div class="puzzle-result" id="puzzleResult"></div>
+            </div>
+          </div><!-- Caça-Palavras Médico -->
+          <div class="game-card">
+            <h3>🔍 Caça-Palavras Médico</h3>
+            <p>Encontre os termos médicos escondidos!</p>
+            <div class="word-search-game">
+              <div class="words-to-find">
+                <h4>Palavras para encontrar:</h4>
+                <div class="word-list" id="wordList"><span class="word-item" data-word="CORACAO">CORAÇÃO</span> <span
+                    class="word-item" data-word="SANGUE">SANGUE</span> <span class="word-item"
+                    data-word="ARTERIA">ARTÉRIA</span> <span class="word-item" data-word="VEIA">VEIA</span> <span
+                    class="word-item" data-word="VALVA">VALVA</span>
+                </div>
+              </div>
+              <div class="word-grid" id="wordGrid"></div><button class="game-btn" onclick="generateWordSearch()">🎲 Novo
+                Jogo</button>
+              <div class="word-search-score">
+                Encontradas: <span id="wordsFound">0/5</span>
+              </div>
+            </div>
+          </div><!-- Quiz Rápido Interativo -->
+          <div class="game-card">
+            <h3>⚡ Quiz Relâmpago</h3>
+            <p>Responda o máximo de perguntas em 60 segundos!</p>
+            <div class="speed-quiz">
+              <div class="quiz-timer">
+                <div class="timer-circle"><span id="timerDisplay">60</span>
+                </div>
+                <div class="quiz-score">
+                  Pontos: <span id="speedScore">0</span>
+                </div>
+              </div>
+              <div class="speed-question" id="speedQuestion" style="display: none;">
+                <h4 id="speedQuestionText"></h4>
+                <div class="speed-options" id="speedOptions"></div>
+              </div><button class="game-btn" id="speedQuizBtn" onclick="startSpeedQuiz()">🚀 Iniciar Quiz</button>
+              <div class="speed-result" id="speedResult"></div>
+            </div>
+          </div><!-- Simulador de Reflexos -->
+          <div class="game-card">
+            <h3>🧠 Simulador de Reflexos</h3>
+            <p>Teste seus reflexos neurológicos!</p>
+            <div class="reflex-simulator">
+              <div class="reflex-display">
+                <div class="reflex-circle" id="reflexCircle"><span id="reflexText">Clique para começar</span>
+                </div>
+                <div class="reflex-stats">
+                  <div class="stat-item"><span class="info-label">Tempo de Reação:</span> <span class="info-value"
+                      id="reactionTime">-- ms</span>
+                  </div>
+                  <div class="stat-item"><span class="info-label">Melhor Tempo:</span> <span class="info-value"
+                      id="bestTime">-- ms</span>
+                  </div>
+                </div>
+              </div>
+              <div class="reflex-controls"><button class="game-btn" onclick="startReflexTest()">🎯 Testar
+                  Reflexos</button> <button class="game-btn" onclick="resetReflexTest()">🔄 Reiniciar</button>
+              </div>
+              <div class="reflex-info">
+                <h4>📊 Classificação dos Reflexos:</h4>
+                <div class="reflex-categories">
+                  <div class="reflex-category excellent">
+                    &lt; 200ms: Excelente 🏆
+                  </div>
+                  <div class="reflex-category good">
+                    200-300ms: Bom 👍
+                  </div>
+                  <div class="reflex-category average">
+                    300-400ms: Médio 📊
+                  </div>
+                  <div class="reflex-category slow">
+                    &gt; 400ms: Lento 🐌
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><!-- Quiz Interativo -->
+      <section id="quiz" class="content-section">
+        <h2 class="section-title">Quiz Interativo Completo</h2>
+        <div class="quiz-navigation"><button class="quiz-nav-btn active"
+            onclick="showQuizSection('cardiovascular-quiz')">💓 Cardiovascular</button> <button class="quiz-nav-btn"
+            onclick="showQuizSection('sangue-quiz')">🩸 Sangue</button> <button class="quiz-nav-btn"
+            onclick="showQuizSection('ciclo-quiz')">⚡ Ciclo Cardíaco</button> <button class="quiz-nav-btn"
+            onclick="showQuizSection('nervoso-quiz')">🧠 Sistema Nervoso</button> <button class="quiz-nav-btn"
+            onclick="showQuizSection('geral-quiz')">🧠 Quiz Geral</button>
+        </div>
+        <div class="quiz-stats">
+          <div class="stat-item"><span class="stat-number" id="totalScore">0</span> <span class="stat-label">Pontos
+              Totais</span>
+          </div>
+          <div class="stat-item"><span class="stat-number" id="totalQuestions">0</span> <span
+              class="stat-label">Questões Respondidas</span>
+          </div>
+          <div class="stat-item"><span class="stat-number" id="accuracy">0%</span> <span
+              class="stat-label">Precisão</span>
+          </div>
+        </div><!-- Quiz Cardiovascular -->
+        <div id="cardiovascular-quiz" class="quiz-section active">
+          <div class="quiz-title">
+            🫀 Sistema Cardiovascular
+          </div>
+          <div class="quiz-question">
+            <h4>1. Do que é constituído o miocárdio?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
+                Tecido muscular liso
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'cardiovascular-quiz')">
+                Tecido muscular cardíaco
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
+                Tecido muscular esquelético
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
+                Tecido conjuntivo
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>2. Qual é a função das valvas cardíacas?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
+                Bombear o sangue
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'cardiovascular-quiz')">
+                Controlar o fluxo sanguíneo na direção correta
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
+                Produzir hormônios
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
+                Filtrar o sangue
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>3. Quando ocorre a primeira bulha cardíaca (B1)?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'cardiovascular-quiz')">
+                No início da contração ventricular
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
+                No final da contração ventricular
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
+                Durante o relaxamento atrial
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
+                Durante a contração atrial
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>4. Quais são os defeitos da Tetralogia de Fallot?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
+                Apenas comunicação interventricular
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'cardiovascular-quiz')">
+                Comunicação interventricular, aorta dextroposicionada, estenose pulmonar e hipertrofia do VD
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
+                Apenas estenose pulmonar
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
+                Comunicação interatrial
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>5. Por que a hemofilia afeta mais os homens?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
+                É uma doença autossômica recessiva
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'cardiovascular-quiz')">
+                É ligada ao cromossomo X e homens têm apenas um X
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
+                Afeta igualmente homens e mulheres
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
+                É causada por hormônios masculinos
+              </div>
+            </div>
+          </div>
+        </div><!-- Quiz Sangue -->
+        <div id="sangue-quiz" class="quiz-section">
+          <div class="quiz-title">
+            🩸 Sangue e Sistema Linfático
+          </div>
+          <div class="quiz-question">
+            <h4>1. Quais são as principais funções do sangue?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
+                Apenas transporte
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'sangue-quiz')">
+                Transporte, homeostase e proteção
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
+                Apenas proteção
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
+                Digestão e absorção
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>2. Qual é o primeiro órgão a se formar no embrião?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
+                Cérebro
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'sangue-quiz')">
+                Coração
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
+                Fígado
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
+                Pulmões
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>3. Qual é a função da linfa?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
+                Apenas transporte de nutrientes
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'sangue-quiz')">
+                Circulação de líquidos e defesa contra patógenos
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
+                Produção de hormônios
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
+                Digestão de gorduras
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>4. O sistema Rh foi estudado pela primeira vez em qual animal?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
+                Chimpanzé
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'sangue-quiz')">
+                Macaco Rhesus
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
+                Gorila
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
+                Orangotango
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>5. A Síndrome de Marfan é causada por mutação em qual cromossomo?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
+                Cromossomo 21
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'sangue-quiz')">
+                Cromossomo 15
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
+                Cromossomo X
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
+                Cromossomo Y
+              </div>
+            </div>
+          </div>
+        </div><!-- Quiz Ciclo Cardíaco -->
+        <div id="ciclo-quiz" class="quiz-section">
+          <div class="quiz-title">
+            ⚡ Ciclo Cardíaco
+          </div>
+          <div class="quiz-question">
+            <h4>1. O que inicia o ciclo cardíaco?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
+                Contração ventricular
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'ciclo-quiz')">
+                Potencial de ação espontâneo do nodo sinusal
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
+                Abertura das valvas
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
+                Relaxamento atrial
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>2. Qual é a ordem correta do estímulo cardíaco?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
+                Nodo AV → Nodo sinusal → Feixe de His
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'ciclo-quiz')">
+                Nodo sinusal → Vias internodais → Nodo AV → Feixe de His → Fibras de Purkinje
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
+                Fibras de Purkinje → Nodo sinusal
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
+                Feixe de His → Nodo sinusal → Nodo AV
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>3. Qual é a duração normal do intervalo PR?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
+                0,08 a 0,12 s
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'ciclo-quiz')">
+                0,12 a 0,20 s
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
+                0,20 a 0,30 s
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
+                0,30 a 0,40 s
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>4. Qual é a principal função das artérias?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'ciclo-quiz')">
+                Transportar sangue sob alta pressão até os tecidos
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
+                Retornar sangue ao coração
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
+                Filtrar o sangue
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
+                Produzir células sanguíneas
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>5. Como é caracterizado o sistema venoso?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
+                Alta pressão e paredes grossas
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'ciclo-quiz')">
+                Baixa pressão e paredes finas
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
+                Pressão variável
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
+                Sem pressão
+              </div>
+            </div>
+          </div>
+        </div><!-- Quiz Sistema Nervoso -->
+        <div id="nervoso-quiz" class="quiz-section">
+          <div class="quiz-title">
+            🧠 Sistema Nervoso
+          </div>
+          <div class="quiz-question">
+            <h4>1. Quais são as duas principais divisões do Sistema Nervoso?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'nervoso-quiz')">
+                Cérebro e Cerebelo
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'nervoso-quiz')">
+                Sistema Nervoso Central (SNC) e Sistema Nervoso Periférico (SNP)
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'nervoso-quiz')">
+                Simpático e Parassimpático
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'nervoso-quiz')">
+                Encéfalo e Medula
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>2. Qual estrutura é responsável pelo equilíbrio e coordenação motora?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'nervoso-quiz')">
+                Cérebro
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'nervoso-quiz')">
+                Cerebelo
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'nervoso-quiz')">
+                Tronco encefálico
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'nervoso-quiz')">
+                Medula espinhal
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>3. Quantos pares de nervos cranianos existem?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'nervoso-quiz')">
+                10 pares
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'nervoso-quiz')">
+                12 pares
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'nervoso-quiz')">
+                14 pares
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'nervoso-quiz')">
+                16 pares
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>4. Qual nervo craniano é responsável pela visão?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'nervoso-quiz')">
+                I - Olfatório
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'nervoso-quiz')">
+                II - Óptico
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'nervoso-quiz')">
+                III - Oculomotor
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'nervoso-quiz')">
+                VIII - Vestibulococlear
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>5. Qual parte do tronco encefálico controla a respiração e batimentos cardíacos?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'nervoso-quiz')">
+                Mesencéfalo
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'nervoso-quiz')">
+                Ponte
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'nervoso-quiz')">
+                Bulbo (Medula Oblonga)
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'nervoso-quiz')">
+                Diencéfalo
+              </div>
+            </div>
+          </div>
+        </div><!-- Quiz Geral -->
+        <div id="geral-quiz" class="quiz-section">
+          <div class="quiz-title">
+            🧠 Quiz Geral - Desafio Final
+          </div>
+          <div class="quiz-question">
+            <h4>1. Qual estrutura NÃO faz parte da circulação sistêmica?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
+                Veia cava superior
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
+                Valva mitral
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'geral-quiz')">
+                Veia porta hepática
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
+                Artéria aorta
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>2. Qual vantagem do coração artificial brasileiro?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
+                Apenas mais barato
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'geral-quiz')">
+                Mais leve, barato, produção simples e menor risco de rejeição
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
+                Apenas menor risco de rejeição
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
+                Funciona sem energia
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>3. Qual é a principal causa de morte súbita?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
+                Apenas infarto
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'geral-quiz')">
+                Infarto ou arritmia grave
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
+                Apenas arritmia
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
+                Hipertensão
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>4. Qual é o tempo aproximado para o sangue completar um ciclo completo?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
+                30 segundos
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'geral-quiz')">
+                60 segundos
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
+                90 segundos
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
+                120 segundos
+              </div>
+            </div>
+          </div>
+          <div class="quiz-question">
+            <h4>5. Qual alteração cardiovascular NÃO está associada à Síndrome de Marfan?</h4>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
+                Dilatação da aorta
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
+                Prolapso da valva mitral
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, true, 'geral-quiz')">
+                Estenose pulmonar
+              </div>
+              <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
+                Risco de aneurisma
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 
-        html {
-            height: 100%;
-        }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
 
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .main-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #2d3748;
-            margin-bottom: 10px;
-        }
-
-        .welcome-text {
-            font-size: 1.2rem;
-            color: #4a5568;
-            margin-bottom: 20px;
-        }
-
-        .system-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .tab-button {
-            padding: 12px 24px;
-            background: #4299e1;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-
-        .tab-button:hover {
-            background: #3182ce;
-            transform: translateY(-2px);
-        }
-
-        .tab-button.active {
-            background: #2b6cb0;
-            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.4);
-        }
-
-        .content-section {
-            display: none;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .content-section.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-title {
-            font-size: 2rem;
-            color: #2d3748;
-            margin-bottom: 25px;
-            text-align: center;
-            border-bottom: 3px solid #4299e1;
-            padding-bottom: 10px;
-        }
-
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .topic-card {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            border-radius: 20px;
-            padding: 30px;
-            border-left: 8px solid #4299e1;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            min-height: 280px;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .topic-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
-        }
-
-        .topic-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #4299e1, #667eea, #764ba2);
-        }
-
-        .topic-card::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background: radial-gradient(circle, rgba(66, 153, 225, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .topic-card:hover::after {
-            transform: scale(1.5);
-            background: radial-gradient(circle, rgba(66, 153, 225, 0.2) 0%, transparent 70%);
-        }
-
-        .topic-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 15px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .topic-card:hover .topic-number {
-            transform: rotate(5deg) scale(1.1);
-            box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
-        }
-
-        .topic-title {
-            font-size: 1.6rem;
-            font-weight: bold;
-            color: #2d3748;
-            margin-bottom: 15px;
-            line-height: 1.3;
-            transition: color 0.3s ease;
-        }
-
-        .topic-card:hover .topic-title {
-            color: #4299e1;
-        }
-
-        .topic-content {
-            color: #4a5568;
-            line-height: 1.7;
-            font-size: 1.05rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .topic-content ul {
-            margin: 15px 0;
-            padding-left: 25px;
-        }
-
-        .topic-content li {
-            margin-bottom: 8px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .topic-content li::marker {
-            color: #4299e1;
-            font-weight: bold;
-        }
-
-        .topic-card:hover .topic-content li {
-            transform: translateX(5px);
-        }
-
-        .topic-content strong {
-            color: #2d3748;
-            font-weight: 600;
-            background: linear-gradient(120deg, transparent 0%, rgba(66, 153, 225, 0.1) 50%, transparent 100%);
-            padding: 2px 4px;
-            border-radius: 4px;
-        }
-
-        .topic-card .card-footer {
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 2px solid rgba(66, 153, 225, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-        }
-
-        .topic-card:hover .card-footer {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .card-icon {
-            font-size: 1.5rem;
-            opacity: 0.7;
-            transition: all 0.3s ease;
-        }
-
-        .topic-card:hover .card-icon {
-            opacity: 1;
-            transform: scale(1.2);
-        }
-
-        .card-action {
-            background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(66, 153, 225, 0.3);
-        }
-
-        .card-action:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.4);
-        }
-
-        .interactive-heart {
-            text-align: center;
-            margin: 30px 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
-            border-radius: 15px;
-        }
-
-        .heart-svg {
-            width: 200px;
-            height: 200px;
-            margin: 20px auto;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .heart-svg:hover {
-            transform: scale(1.1);
-        }
-
-        .heart-beat {
-            animation: heartbeat 1.5s ease-in-out infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .quiz-navigation {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .quiz-nav-btn {
-            padding: 10px 20px;
-            background: #667eea;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .quiz-nav-btn:hover {
-            background: #5a67d8;
-            transform: translateY(-2px);
-        }
-
-        .quiz-nav-btn.active {
-            background: #4c51bf;
-            box-shadow: 0 4px 15px rgba(76, 81, 191, 0.4);
-        }
-
-        .quiz-stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            display: block;
-            font-size: 2rem;
-            font-weight: bold;
-            color: #4c51bf;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #4a5568;
-            font-weight: 600;
-        }
-
-        .quiz-section {
-            display: none;
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 20px;
-        }
-
-        .quiz-section.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        .quiz-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2d3748;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .quiz-question {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .quiz-options {
-            display: grid;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .quiz-option {
-            padding: 12px 20px;
-            background: #f7fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .quiz-option:hover {
-            background: #edf2f7;
-            border-color: #4299e1;
-        }
-
-        .quiz-option.correct {
-            background: #c6f6d5;
-            border-color: #38a169;
-            color: #22543d;
-        }
-
-        .quiz-option.incorrect {
-            background: #fed7d7;
-            border-color: #e53e3e;
-            color: #742a2a;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #e2e8f0;
-            border-radius: 4px;
-            margin: 20px 0;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #4299e1, #667eea);
-            width: 0%;
-            transition: width 0.5s ease;
-        }
-
-        .interactive-elements {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .element-card {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
-            border-radius: 15px;
-            padding: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .element-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .element-card h4 {
-            margin-bottom: 10px;
-            color: #2d3748;
-        }
-
-        .flow-step {
-            padding: 8px 15px;
-            margin: 5px 0;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
-        }
-
-        .flow-step.active {
-            background: #4299e1;
-            color: white;
-            border-left-color: #2b6cb0;
-            transform: translateX(5px);
-        }
-
-        .breathing-indicator {
-            margin-top: 15px;
-        }
-
-        .lung-animation {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .lung {
-            width: 40px;
-            height: 60px;
-            background: #e53e3e;
-            border-radius: 20px 20px 40px 40px;
-            transition: all 0.8s ease;
-        }
-
-        .lung.breathing {
-            transform: scaleY(1.2);
-            background: #fc8181;
-        }
-
-        .breathing-text {
-            font-weight: bold;
-            color: #2d3748;
-            margin-top: 10px;
-        }
-
-        .pulse-animation {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .game-card {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            border-radius: 20px;
-            padding: 25px;
-            color: white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .game-card h3 {
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-        }
-
-        .game-card p {
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-        .game-btn {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 12px 24px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            margin: 5px;
-        }
-
-        .game-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-2px);
-        }
-
-        /* Jogo da Memória */
-        .memory-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-
-        .memory-board {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .memory-card {
-            aspect-ratio: 1;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .memory-card:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .memory-card.flipped {
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            transform: rotateY(180deg);
-        }
-
-        .memory-card.matched {
-            background: rgba(76, 175, 80, 0.8);
-            border-color: #4caf50;
-        }
-
-        /* Simulador de Batimentos */
-        .heartbeat-simulator {
-            text-align: center;
-        }
-
-        .heart-display {
-            margin-bottom: 20px;
-        }
-
-        .sim-heart {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 10px;
-        }
-
-        .bpm-display {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .heart-controls {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-        }
-
-        .heart-controls label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .heart-controls input[type="range"] {
-            width: 100%;
-            margin-bottom: 15px;
-        }
-
-        .heart-info-panel {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .info-item {
-            text-align: left;
-        }
-
-        .info-label {
-            display: block;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .info-value {
-            display: block;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        /* Quebra-Cabeça */
-        .puzzle-target {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            min-height: 200px;
-        }
-
-        .target-slot {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px dashed rgba(255, 255, 255, 0.5);
-            border-radius: 10px;
-            padding: 15px;
-            margin: 10px 0;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .target-slot.drag-over {
-            background: rgba(255, 255, 255, 0.4);
-            border-style: solid;
-        }
-
-        .target-slot.filled {
-            background: rgba(76, 175, 80, 0.6);
-            border-color: #4caf50;
-        }
-
-        .puzzle-pieces {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .puzzle-piece {
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            padding: 12px 16px;
-            border-radius: 8px;
-            cursor: grab;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .puzzle-piece:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .puzzle-piece.dragging {
-            opacity: 0.5;
-            cursor: grabbing;
-        }
-
-        .puzzle-result {
-            margin-top: 15px;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        /* Caça-Palavras */
-        .words-to-find {
-            margin-bottom: 20px;
-        }
-
-        .word-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .word-item {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 12px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .word-item.found {
-            background: rgba(76, 175, 80, 0.6);
-            text-decoration: line-through;
-        }
-
-        .word-grid {
-            display: grid;
-            grid-template-columns: repeat(10, 1fr);
-            gap: 2px;
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 10px;
-        }
-
-        .word-cell {
-            aspect-ratio: 1;
-            background: rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border-radius: 3px;
-        }
-
-        .word-cell:hover {
-            background: rgba(255, 255, 255, 0.4);
-        }
-
-        .word-cell.selected {
-            background: rgba(255, 193, 7, 0.8);
-        }
-
-        .word-cell.found {
-            background: rgba(76, 175, 80, 0.8);
-        }
-
-        .word-search-score {
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        /* Simulador de Respiração */
-        .breathing-circle {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
-            margin: 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            border: 3px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .breathing-circle.inhale {
-            transform: scale(1.3);
-            background: radial-gradient(circle, rgba(135,206,250,0.6) 0%, rgba(135,206,250,0.2) 100%);
-        }
-
-        .breathing-circle.exhale {
-            transform: scale(0.8);
-            background: radial-gradient(circle, rgba(255,182,193,0.6) 0%, rgba(255,182,193,0.2) 100%);
-        }
-
-        .breathing-text {
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .breathing-controls {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .breathing-stats {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 10px;
-        }
-
-        /* Quiz Relâmpago */
-        .quiz-timer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .timer-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            border: 3px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .timer-circle.warning {
-            background: rgba(255, 152, 0, 0.6);
-            border-color: #ff9800;
-            animation: pulse 1s infinite;
-        }
-
-        .quiz-score {
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-
-        .speed-question {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-        }
-
-        .speed-options {
-            display: grid;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .speed-option {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 12px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .speed-option:hover {
-            background: rgba(255, 255, 255, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .speed-option.correct {
-            background: rgba(76, 175, 80, 0.6);
-            border-color: #4caf50;
-        }
-
-        .speed-option.incorrect {
-            background: rgba(244, 67, 54, 0.6);
-            border-color: #f44336;
-        }
-
-        .speed-result {
-            margin-top: 20px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            .games-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .game-card {
-                padding: 20px;
-            }
-            
-            .memory-board {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .word-grid {
-                grid-template-columns: repeat(8, 1fr);
-            }
-            
-            .breathing-circle {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .breathing-controls {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .main-title {
-                font-size: 2rem;
-            }
-            
-            .topic-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .system-tabs {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .tab-button {
-                width: 200px;
-            }
-
-            .quiz-navigation {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .quiz-nav-btn {
-                width: 200px;
-            }
-
-            .quiz-stats {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .interactive-elements {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-  <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
- </head>
- <body>
-  <div class="container">
-   <header class="header">
-    <h1 class="main-title" id="siteTitle">Sistema Cardiovascular e Respiratório</h1>
-    <p class="welcome-text" id="welcomeMessage">Explore de forma interativa os sistemas que mantêm a vida funcionando!</p>
-    <div class="progress-bar">
-     <div class="progress-fill" id="progressFill"></div>
-    </div>
-   </header>
-   <nav class="system-tabs"><button class="tab-button active" onclick="showSection('cardiovascular')">💓 Sistema Cardiovascular</button> <button class="tab-button" onclick="showSection('sangue')">🩸 Sangue e Linfático</button> <button class="tab-button" onclick="showSection('ciclo')">⚡ Ciclo Cardíaco</button> <button class="tab-button" onclick="showSection('respiratorio')">🫁 Sistema Respiratório</button> <button class="tab-button" onclick="showSection('jogos')">🎮 Jogos Educativos</button> <button class="tab-button" onclick="showSection('quiz')">🧠 Quiz Interativo</button>
-   </nav>
-   <main><!-- Sistema Cardiovascular -->
-    <section id="cardiovascular" class="content-section active">
-     <h2 class="section-title">Sistema Nervoso / Cardiovascular</h2>
-     <div class="interactive-heart">
-      <h3>Coração Interativo</h3>
-      <svg class="heart-svg heart-beat" viewbox="0 0 100 100" onclick="animateHeart()"><path d="M50,85 C50,85 20,65 20,45 C20,35 30,25 40,25 C45,25 50,30 50,30 C50,30 55,25 60,25 C70,25 80,35 80,45 C80,65 50,85 50,85 Z" fill="#e53e3e" stroke="#c53030" stroke-width="2" /> <circle cx="35" cy="40" r="8" fill="#fc8181" opacity="0.7" /> <circle cx="65" cy="40" r="8" fill="#fc8181" opacity="0.7" />
-      </svg>
-      <p>Clique no coração para ver a animação!</p>
-      <div class="heart-info" id="heartInfo" style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.8); border-radius: 10px; display: none;"><strong>💓 Batimentos por minuto:</strong> <span id="heartRate">72</span><br><strong>🩸 Sangue bombeado por dia:</strong> ~7.500 litros<br><strong>⚡ Batimentos por dia:</strong> ~100.000
-      </div>
-     </div>
-     <div class="interactive-elements">
-      <div class="element-card" onclick="showCirculationFlow()">
-       <h4>🔄 Fluxo Circulatório</h4>
-       <p>Clique para ver o caminho do sangue</p>
-       <div class="circulation-flow" id="circulationFlow" style="display: none; margin-top: 10px;">
-        <div class="flow-step active" id="step1">
-         1. Veia Cava → Átrio Direito
-        </div>
-        <div class="flow-step" id="step2">
-         2. Átrio Direito → Ventrículo Direito
-        </div>
-        <div class="flow-step" id="step3">
-         3. Ventrículo Direito → Pulmões
-        </div>
-        <div class="flow-step" id="step4">
-         4. Pulmões → Átrio Esquerdo
-        </div>
-        <div class="flow-step" id="step5">
-         5. Átrio Esquerdo → Ventrículo Esquerdo
-        </div>
-        <div class="flow-step" id="step6">
-         6. Ventrículo Esquerdo → Corpo
-        </div>
-       </div>
-      </div>
-      <div class="element-card" onclick="toggleBreathingAnimation()">
-       <h4>🫁 Simulador Respiratório</h4>
-       <p>Clique para iniciar/parar a respiração</p>
-       <div class="breathing-indicator" id="breathingIndicator">
-        <div class="lung-animation" id="lungAnimation">
-         <div class="lung left-lung"></div>
-         <div class="lung right-lung"></div>
-        </div>
-        <div class="breathing-text" id="breathingText">
-         Clique para respirar
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="topic-grid">
-      <div class="topic-card" onclick="expandCard(this)">
-       <div class="topic-number">
-        1
-       </div>
-       <div class="topic-title">
-        Constituição do Miocárdio
-       </div>
-       <div class="topic-content">
-        <p><strong>Tecido muscular cardíaco</strong> - músculo especializado que se contrai involuntariamente e de forma rítmica.</p>
-        <div class="expanded-content" style="display: none;">
-         <p><strong>🔬 Características especiais:</strong></p>
-         <ul>
-          <li>Células interconectadas por discos intercalares</li>
-          <li>Contração sincronizada e automática</li>
-          <li>Rica vascularização para suprimento energético</li>
-          <li>Resistente à fadiga devido ao metabolismo aeróbico</li>
-         </ul>
-         <p><strong>💡 Curiosidade:</strong> O coração bate cerca de 3 bilhões de vezes durante uma vida!</p>
-        </div>
-       </div>
-       <div class="card-footer"><span class="card-icon">💓</span> <button class="card-action">Explorar</button>
-       </div>
-      </div>
-      <div class="topic-card" onclick="expandCard(this)">
-       <div class="topic-number">
-        2
-       </div>
-       <div class="topic-title">
-        Circulação Sistêmica
-       </div>
-       <div class="topic-content">
-        <p><strong>🔄 Caminho completo do sangue:</strong></p>
-        <ul>
-         <li>Veia cava superior e inferior</li>
-         <li>Átrio direito → Valva tricúspide</li>
-         <li>Ventrículo direito → Valva pulmonar</li>
-         <li>Artéria pulmonar → Pulmões</li>
-         <li>Veias pulmonares → Átrio esquerdo</li>
-         <li>Valva mitral → Ventrículo esquerdo</li>
-         <li>Valva aórtica → Artéria aorta</li>
-        </ul>
-        <div class="expanded-content" style="display: none;">
-         <p><strong>⏱️ Tempo de circulação:</strong> O sangue completa todo o circuito em aproximadamente 60 segundos!</p>
-         <p><strong>📊 Dados impressionantes:</strong></p>
-         <ul>
-          <li>5 litros de sangue circulam pelo corpo</li>
-          <li>100.000 km de vasos sanguíneos</li>
-          <li>Pressão sistólica normal: 120 mmHg</li>
-         </ul>
-        </div>
-       </div>
-       <div class="card-footer"><span class="card-icon">🔄</span> <button class="card-action">Ver Fluxo</button>
-       </div>
-      </div>
-      <div class="topic-card" onclick="expandCard(this)">
-       <div class="topic-number">
-        3
-       </div>
-       <div class="topic-title">
-        Função das Valvas
-       </div>
-       <div class="topic-content">
-        <p>Controlar o fluxo sanguíneo, garantindo que o sangue flua sempre na <strong>direção correta</strong>.</p>
-        <div class="expanded-content" style="display: none;">
-         <p><strong>🚪 Tipos de valvas:</strong></p>
-         <ul>
-          <li><strong>Tricúspide:</strong> Entre átrio e ventrículo direito</li>
-          <li><strong>Pulmonar:</strong> Saída do ventrículo direito</li>
-          <li><strong>Mitral (Bicúspide):</strong> Entre átrio e ventrículo esquerdo</li>
-          <li><strong>Aórtica:</strong> Saída do ventrículo esquerdo</li>
-         </ul>
-         <p><strong>⚠️ Problemas valvares:</strong> Estenose (estreitamento) ou insuficiência (vazamento)</p>
-        </div>
-       </div>
-       <div class="card-footer"><span class="card-icon">🚪</span> <button class="card-action">Detalhes</button>
-       </div>
-      </div>
-      <div class="topic-card" onclick="expandCard(this)">
-       <div class="topic-number">
-        4
-       </div>
-       <div class="topic-title">
-        Primeira Bulha (B1)
-       </div>
-       <div class="topic-content">
-        <p><strong>🔊 Som cardíaco fundamental:</strong></p>
-        <ul>
-         <li>Ocorre no início da contração ventricular</li>
-         <li>Som do fechamento das valvas atrioventriculares (mitral e tricúspide)</li>
-        </ul>
-        <div class="expanded-content" style="display: none;">
-         <p><strong>🎵 Características sonoras:</strong></p>
-         <ul>
-          <li>Som mais grave e prolongado</li>
-          <li>Melhor audível no ápice cardíaco</li>
-          <li>Coincide com o pulso arterial</li>
-         </ul>
-         <p><strong>🩺 Alterações patológicas:</strong> Sopros podem indicar problemas valvares</p>
-        </div>
-       </div>
-       <div class="card-footer"><span class="card-icon">🔊</span> <button class="card-action">Escutar</button>
-       </div>
-      </div>
-      <div class="topic-card" onclick="expandCard(this)">
-       <div class="topic-number">
-        5
-       </div>
-       <div class="topic-title">
-        Tetralogia de Fallot
-       </div>
-       <div class="topic-content">
-        <p><strong>🫀 Cardiopatia congênita complexa:</strong></p>
-        <ul>
-         <li>Comunicação interventricular</li>
-         <li>Aorta dextroposicionada</li>
-         <li>Estenose pulmonar</li>
-         <li>Hipertrofia do ventrículo direito</li>
-        </ul>
-        <div class="expanded-content" style="display: none;">
-         <p><strong>👶 Manifestações clínicas:</strong></p>
-         <ul>
-          <li>Cianose (coloração azulada)</li>
-          <li>Dificuldade respiratória</li>
-          <li>Crescimento retardado</li>
-          <li>Posição de cócoras para alívio</li>
-         </ul>
-         <p><strong>🏥 Tratamento:</strong> Correção cirúrgica geralmente antes dos 2 anos</p>
-        </div>
-       </div>
-       <div class="card-footer"><span class="card-icon">🫀</span> <button class="card-action">Estudar</button>
-       </div>
-      </div>
-      <div class="topic-card" onclick="expandCard(this)">
-       <div class="topic-number">
-        6
-       </div>
-       <div class="topic-title">
-        Hemofilia
-       </div>
-       <div class="topic-content">
-        <p><strong>🧬 Distúrbio genético da coagulação:</strong></p>
-        <ul>
-         <li>Doença genética ligada ao cromossomo X</li>
-         <li>Homens: apenas 1 X → manifestam a doença</li>
-         <li>Mulheres: 2 X → podem ser portadoras</li>
-        </ul>
-        <div class="expanded-content" style="display: none;">
-         <p><strong>🩸 Tipos de hemofilia:</strong></p>
-         <ul>
-          <li><strong>Hemofilia A:</strong> Deficiência do fator VIII (mais comum)</li>
-          <li><strong>Hemofilia B:</strong> Deficiência do fator IX</li>
-          <li><strong>Hemofilia C:</strong> Deficiência do fator XI (mais rara)</li>
-         </ul>
-         <p><strong>💊 Tratamento:</strong> Reposição dos fatores de coagulação</p>
-        </div>
-       </div>
-       <div class="card-footer"><span class="card-icon">🧬</span> <button class="card-action">Genética</button>
-       </div>
-      </div>
-     </div>
-    </section><!-- Sangue e Sistema Linfático -->
-    <section id="sangue" class="content-section">
-     <h2 class="section-title">Sangue e Sistema Linfático</h2>
-     <div class="topic-grid">
-      <div class="topic-card">
-       <div class="topic-number">
-        1
-       </div>
-       <div class="topic-title">
-        Funções do Sangue
-       </div>
-       <div class="topic-content">
-        <ul>
-         <li><strong>Transporte</strong> - nutrientes e oxigênio</li>
-         <li><strong>Homeostase</strong> - equilíbrio interno</li>
-         <li><strong>Proteção</strong> - defesa imunológica</li>
-        </ul>
-       </div>
-      </div>
-      <div class="topic-card">
-       <div class="topic-number">
-        2
-       </div>
-       <div class="topic-title">
-        Primeiro Órgão Embrionário
-       </div>
-       <div class="topic-content">
-        O <strong>coração</strong> é o primeiro órgão a se formar no embrião, demonstrando sua importância vital.
-       </div>
-      </div>
-      <div class="topic-card">
-       <div class="topic-number">
-        3
-       </div>
-       <div class="topic-title">
-        Função da Linfa
-       </div>
-       <div class="topic-content">
-        <ul>
-         <li>Auxilia na circulação de líquidos corporais</li>
-         <li>Atua na defesa contra agentes patogênicos</li>
-        </ul>
-       </div>
-      </div>
-      <div class="topic-card">
-       <div class="topic-number">
-        4
-       </div>
-       <div class="topic-title">
-        Sistema Rh
-       </div>
-       <div class="topic-content">
-        Estudado pela primeira vez no <strong>macaco Rhesus</strong>, daí o nome do sistema.
-       </div>
-      </div>
-      <div class="topic-card">
-       <div class="topic-number">
-        5
-       </div>
-       <div class="topic-title">
-        Síndrome de Marfan
-       </div>
-       <div class="topic-content">
-        <ul>
-         <li>Doença genética - mutação no cromossomo 15</li>
-         <li>Padrão autossômico dominante</li>
-         <li>Alterações: dilatação da aorta, aneurisma</li>
-         <li>Prolapso da valva mitral</li>
-        </ul>
-       </div>
-      </div>
-      <div class="topic-card">
-       <div class="topic-number">
-        6
-       </div>
-       <div class="topic-title">
-        Coração Artificial Brasileiro
-       </div>
-       <div class="topic-content">
-        <ul>
-         <li>Mais leve e barato</li>
-         <li>Produção simples</li>
-         <li>Menor risco de rejeição</li>
-        </ul>
-       </div>
-      </div>
-     </div>
-    </section><!-- Ciclo Cardíaco -->
-    <section id="ciclo" class="content-section">
-     <h2 class="section-title">Sistema Cardiovascular - Ciclo Cardíaco</h2>
-     <div class="topic-grid">
-      <div class="topic-card">
-       <div class="topic-number">
-        1
-       </div>
-       <div class="topic-title">
-        Ciclo Cardíaco
-       </div>
-       <div class="topic-content">
-        Vai do início de um batimento até o início do próximo. Iniciado pelo <strong>potencial de ação espontâneo do nodo sinusal</strong>.
-       </div>
-      </div>
-      <div class="topic-card">
-       <div class="topic-number">
-        2
-       </div>
-       <div class="topic-title">
-        Ordem do Estímulo Cardíaco
-       </div>
-       <div class="topic-content">
-        <ol>
-         <li>Nodo sinusal</li>
-         <li>Vias internodais</li>
-         <li>Nodo atrioventricular</li>
-         <li>Feixe de His</li>
-         <li>Fibras de Purkinje</li>
-        </ol>
-       </div>
-      </div>
-      <div class="topic-card">
-       <div class="topic-number">
-        3
-       </div>
-       <div class="topic-title">
-        Intervalo PR
-       </div>
-       <div class="topic-content">
-        <ul>
-         <li>Tempo entre contração atrial e ventricular</li>
-         <li>Duração normal: <strong>0,12 a 0,20 segundos</strong></li>
-        </ul>
-       </div>
-      </div>
-      <div class="topic-card">
-       <div class="topic-number">
-        4
-       </div>
-       <div class="topic-title">
-        Função das Artérias
-       </div>
-       <div class="topic-content">
-        Transportar sangue sob <strong>alta pressão</strong> até os tecidos do corpo.
-       </div>
-      </div>
-      <div class="topic-card">
-       <div class="topic-number">
-        5
-       </div>
-       <div class="topic-title">
-        Sistema Venoso
-       </div>
-       <div class="topic-content">
-        <ul>
-         <li>Caracterizado por <strong>baixa pressão</strong></li>
-         <li>Paredes mais finas que as artérias</li>
-        </ul>
-       </div>
-      </div>
-      <div class="topic-card">
-       <div class="topic-number">
-        6
-       </div>
-       <div class="topic-title">
-        Marca-passo
-       </div>
-       <div class="topic-content">
-        Mantém o ritmo cardíaco quando o coração falha em fazê-lo naturalmente. Prevenção da morte súbita.
-       </div>
-      </div>
-     </div>
-    </section><!-- Sistema Respiratório -->
-    <section id="respiratorio" class="content-section">
-     <h2 class="section-title">Sistema Respiratório</h2>
-     <div class="topic-grid">
-      <div class="topic-card">
-       <div class="topic-number">
-        1
-       </div>
-       <div class="topic-title">
-        Nariz Interno
-       </div>
-       <div class="topic-content"><strong>Aquecer, umidificar e filtrar</strong> o ar inalado antes que chegue aos pulmões.
-       </div>
-      </div>
-      <div class="topic-card">
-       <div class="topic-number">
-        2
-       </div>
-       <div class="topic-title">
-        Brônquios
-       </div>
-       <div class="topic-content">
-        Brônquios lobares são originados pelo <strong>brônquio principal esquerdo</strong>.
-       </div>
-      </div>
-      <div class="topic-card">
-       <div class="topic-number">
-        3
-       </div>
-       <div class="topic-title">
-        Surfactante Pulmonar
-       </div>
-       <div class="topic-content">
-        <ul>
-         <li>Reduz a tensão superficial nos alvéolos</li>
-         <li>Evita o colapso alveolar durante a expiração</li>
-        </ul>
-       </div>
-      </div>
-      <div class="topic-card">
-       <div class="topic-number">
-        4
-       </div>
-       <div class="topic-title">
-        Líquido Pleural
-       </div>
-       <div class="topic-content">
-        Reduz o <strong>atrito entre as pleuras</strong> durante os movimentos respiratórios.
-       </div>
-      </div>
-      <div class="topic-card">
-       <div class="topic-number">
-        5
-       </div>
-       <div class="topic-title">
-        Pneumotórax
-       </div>
-       <div class="topic-content">
-        <ul>
-         <li>Entrada de ar na cavidade pleural</li>
-         <li>Resultado: o pulmão colapsa</li>
-        </ul>
-       </div>
-      </div>
-      <div class="topic-card">
-       <div class="topic-number">
-        6
-       </div>
-       <div class="topic-title">
-        Enfisema Pulmonar
-       </div>
-       <div class="topic-content">
-        <ul>
-         <li>Destruição das paredes alveolares</li>
-         <li>Resultado: menor eficiência na troca gasosa</li>
-         <li>Comum em fumantes</li>
-        </ul>
-       </div>
-      </div>
-     </div>
-    </section><!-- Jogos Educativos -->
-    <section id="jogos" class="content-section">
-     <h2 class="section-title">🎮 Jogos Educativos Interativos</h2>
-     <div class="games-grid"><!-- Jogo da Memória -->
-      <div class="game-card">
-       <h3>🧠 Jogo da Memória - Anatomia</h3>
-       <p>Encontre os pares de estruturas anatômicas!</p>
-       <div class="memory-game" id="memoryGame">
-        <div class="memory-stats"><span>Tentativas: <strong id="memoryAttempts">0</strong></span> <span>Pares: <strong id="memoryPairs">0/8</strong></span> <span>Tempo: <strong id="memoryTime">00:00</strong></span>
-        </div>
-        <div class="memory-board" id="memoryBoard"></div><button class="game-btn" onclick="startMemoryGame()">🎯 Iniciar Jogo</button>
-       </div>
-      </div><!-- Simulador de Batimentos -->
-      <div class="game-card">
-       <h3>💓 Simulador de Batimentos</h3>
-       <p>Controle a frequência cardíaca e veja os efeitos!</p>
-       <div class="heartbeat-simulator">
-        <div class="heart-display">
-         <svg class="sim-heart" viewbox="0 0 100 100" id="simHeart"><path d="M50,85 C50,85 20,65 20,45 C20,35 30,25 40,25 C45,25 50,30 50,30 C50,30 55,25 60,25 C70,25 80,35 80,45 C80,65 50,85 50,85 Z" fill="#e53e3e" stroke="#c53030" stroke-width="2" />
-         </svg>
-         <div class="bpm-display" id="bpmDisplay">
-          72 BPM
-         </div>
-        </div>
-        <div class="heart-controls"><label>Frequência Cardíaca:</label> <input type="range" id="heartRateSlider" min="40" max="180" value="72" oninput="updateHeartRate(this.value)">
-         <div class="heart-info-panel" id="heartInfoPanel">
-          <div class="info-item"><span class="info-label">Estado:</span> <span class="info-value" id="heartState">Normal</span>
-          </div>
-          <div class="info-item"><span class="info-label">Condição:</span> <span class="info-value" id="heartCondition">Repouso</span>
-          </div>
-         </div>
-        </div>
-       </div>
-      </div><!-- Quebra-Cabeça do Sistema Circulatório -->
-      <div class="game-card">
-       <h3>🧩 Quebra-Cabeça Circulatório</h3>
-       <p>Monte o caminho do sangue na ordem correta!</p>
-       <div class="puzzle-game">
-        <div class="puzzle-target" id="puzzleTarget">
-         <div class="target-slot" data-correct="1">
-          1. Início
-         </div>
-         <div class="target-slot" data-correct="2">
-          2. ?
-         </div>
-         <div class="target-slot" data-correct="3">
-          3. ?
-         </div>
-         <div class="target-slot" data-correct="4">
-          4. ?
-         </div>
-         <div class="target-slot" data-correct="5">
-          5. ?
-         </div>
-         <div class="target-slot" data-correct="6">
-          6. Final
-         </div>
-        </div>
-        <div class="puzzle-pieces" id="puzzlePieces">
-         <div class="puzzle-piece" draggable="true" data-value="1">
-          Veia Cava → Átrio Direito
-         </div>
-         <div class="puzzle-piece" draggable="true" data-value="2">
-          Átrio Direito → Ventrículo Direito
-         </div>
-         <div class="puzzle-piece" draggable="true" data-value="3">
-          Ventrículo Direito → Pulmões
-         </div>
-         <div class="puzzle-piece" draggable="true" data-value="4">
-          Pulmões → Átrio Esquerdo
-         </div>
-         <div class="puzzle-piece" draggable="true" data-value="5">
-          Átrio Esquerdo → Ventrículo Esquerdo
-         </div>
-         <div class="puzzle-piece" draggable="true" data-value="6">
-          Ventrículo Esquerdo → Corpo
-         </div>
-        </div><button class="game-btn" onclick="resetPuzzle()">🔄 Reiniciar</button>
-        <div class="puzzle-result" id="puzzleResult"></div>
-       </div>
-      </div><!-- Caça-Palavras Médico -->
-      <div class="game-card">
-       <h3>🔍 Caça-Palavras Médico</h3>
-       <p>Encontre os termos médicos escondidos!</p>
-       <div class="word-search-game">
-        <div class="words-to-find">
-         <h4>Palavras para encontrar:</h4>
-         <div class="word-list" id="wordList"><span class="word-item" data-word="CORACAO">CORAÇÃO</span> <span class="word-item" data-word="PULMAO">PULMÃO</span> <span class="word-item" data-word="SANGUE">SANGUE</span> <span class="word-item" data-word="ARTERIA">ARTÉRIA</span> <span class="word-item" data-word="VEIA">VEIA</span>
-         </div>
-        </div>
-        <div class="word-grid" id="wordGrid"></div><button class="game-btn" onclick="generateWordSearch()">🎲 Novo Jogo</button>
-        <div class="word-search-score">
-         Encontradas: <span id="wordsFound">0/5</span>
-        </div>
-       </div>
-      </div><!-- Simulador de Respiração -->
-      <div class="game-card">
-       <h3>🫁 Simulador de Respiração Guiada</h3>
-       <p>Pratique técnicas de respiração saudável!</p>
-       <div class="breathing-game">
-        <div class="breathing-circle" id="breathingCircle">
-         <div class="breathing-text" id="breathingInstruction">
-          Clique para começar
-         </div>
-        </div>
-        <div class="breathing-controls"><button class="game-btn" onclick="startBreathingExercise('calm')">😌 Respiração Calma (4-4-4)</button> <button class="game-btn" onclick="startBreathingExercise('energy')">⚡ Respiração Energizante (4-2-6)</button> <button class="game-btn" onclick="stopBreathingExercise()">⏹️ Parar</button>
-        </div>
-        <div class="breathing-stats">
-         <div>
-          Ciclos completados: <span id="breathingCycles">0</span>
-         </div>
-         <div>
-          Tempo total: <span id="breathingTotalTime">00:00</span>
-         </div>
-        </div>
-       </div>
-      </div><!-- Quiz Rápido Interativo -->
-      <div class="game-card">
-       <h3>⚡ Quiz Relâmpago</h3>
-       <p>Responda o máximo de perguntas em 60 segundos!</p>
-       <div class="speed-quiz">
-        <div class="quiz-timer">
-         <div class="timer-circle"><span id="timerDisplay">60</span>
-         </div>
-         <div class="quiz-score">
-          Pontos: <span id="speedScore">0</span>
-         </div>
-        </div>
-        <div class="speed-question" id="speedQuestion" style="display: none;">
-         <h4 id="speedQuestionText"></h4>
-         <div class="speed-options" id="speedOptions"></div>
-        </div><button class="game-btn" id="speedQuizBtn" onclick="startSpeedQuiz()">🚀 Iniciar Quiz</button>
-        <div class="speed-result" id="speedResult"></div>
-       </div>
-      </div>
-     </div>
-    </section><!-- Quiz Interativo -->
-    <section id="quiz" class="content-section">
-     <h2 class="section-title">Quiz Interativo Completo</h2>
-     <div class="quiz-navigation"><button class="quiz-nav-btn active" onclick="showQuizSection('cardiovascular-quiz')">💓 Cardiovascular</button> <button class="quiz-nav-btn" onclick="showQuizSection('sangue-quiz')">🩸 Sangue</button> <button class="quiz-nav-btn" onclick="showQuizSection('ciclo-quiz')">⚡ Ciclo Cardíaco</button> <button class="quiz-nav-btn" onclick="showQuizSection('respiratorio-quiz')">🫁 Respiratório</button> <button class="quiz-nav-btn" onclick="showQuizSection('geral-quiz')">🧠 Quiz Geral</button>
-     </div>
-     <div class="quiz-stats">
-      <div class="stat-item"><span class="stat-number" id="totalScore">0</span> <span class="stat-label">Pontos Totais</span>
-      </div>
-      <div class="stat-item"><span class="stat-number" id="totalQuestions">0</span> <span class="stat-label">Questões Respondidas</span>
-      </div>
-      <div class="stat-item"><span class="stat-number" id="accuracy">0%</span> <span class="stat-label">Precisão</span>
-      </div>
-     </div><!-- Quiz Cardiovascular -->
-     <div id="cardiovascular-quiz" class="quiz-section active">
-      <div class="quiz-title">
-       🫀 Sistema Cardiovascular
-      </div>
-      <div class="quiz-question">
-       <h4>1. Do que é constituído o miocárdio?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
-         Tecido muscular liso
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'cardiovascular-quiz')">
-         Tecido muscular cardíaco
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
-         Tecido muscular esquelético
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
-         Tecido conjuntivo
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>2. Qual é a função das valvas cardíacas?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
-         Bombear o sangue
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'cardiovascular-quiz')">
-         Controlar o fluxo sanguíneo na direção correta
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
-         Produzir hormônios
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
-         Filtrar o sangue
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>3. Quando ocorre a primeira bulha cardíaca (B1)?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'cardiovascular-quiz')">
-         No início da contração ventricular
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
-         No final da contração ventricular
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
-         Durante o relaxamento atrial
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
-         Durante a contração atrial
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>4. Quais são os defeitos da Tetralogia de Fallot?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
-         Apenas comunicação interventricular
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'cardiovascular-quiz')">
-         Comunicação interventricular, aorta dextroposicionada, estenose pulmonar e hipertrofia do VD
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
-         Apenas estenose pulmonar
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
-         Comunicação interatrial
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>5. Por que a hemofilia afeta mais os homens?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
-         É uma doença autossômica recessiva
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'cardiovascular-quiz')">
-         É ligada ao cromossomo X e homens têm apenas um X
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
-         Afeta igualmente homens e mulheres
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'cardiovascular-quiz')">
-         É causada por hormônios masculinos
-        </div>
-       </div>
-      </div>
-     </div><!-- Quiz Sangue -->
-     <div id="sangue-quiz" class="quiz-section">
-      <div class="quiz-title">
-       🩸 Sangue e Sistema Linfático
-      </div>
-      <div class="quiz-question">
-       <h4>1. Quais são as principais funções do sangue?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
-         Apenas transporte
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'sangue-quiz')">
-         Transporte, homeostase e proteção
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
-         Apenas proteção
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
-         Digestão e absorção
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>2. Qual é o primeiro órgão a se formar no embrião?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
-         Cérebro
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'sangue-quiz')">
-         Coração
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
-         Fígado
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
-         Pulmões
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>3. Qual é a função da linfa?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
-         Apenas transporte de nutrientes
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'sangue-quiz')">
-         Circulação de líquidos e defesa contra patógenos
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
-         Produção de hormônios
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
-         Digestão de gorduras
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>4. O sistema Rh foi estudado pela primeira vez em qual animal?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
-         Chimpanzé
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'sangue-quiz')">
-         Macaco Rhesus
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
-         Gorila
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
-         Orangotango
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>5. A Síndrome de Marfan é causada por mutação em qual cromossomo?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
-         Cromossomo 21
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'sangue-quiz')">
-         Cromossomo 15
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
-         Cromossomo X
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'sangue-quiz')">
-         Cromossomo Y
-        </div>
-       </div>
-      </div>
-     </div><!-- Quiz Ciclo Cardíaco -->
-     <div id="ciclo-quiz" class="quiz-section">
-      <div class="quiz-title">
-       ⚡ Ciclo Cardíaco
-      </div>
-      <div class="quiz-question">
-       <h4>1. O que inicia o ciclo cardíaco?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
-         Contração ventricular
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'ciclo-quiz')">
-         Potencial de ação espontâneo do nodo sinusal
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
-         Abertura das valvas
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
-         Relaxamento atrial
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>2. Qual é a ordem correta do estímulo cardíaco?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
-         Nodo AV → Nodo sinusal → Feixe de His
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'ciclo-quiz')">
-         Nodo sinusal → Vias internodais → Nodo AV → Feixe de His → Fibras de Purkinje
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
-         Fibras de Purkinje → Nodo sinusal
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
-         Feixe de His → Nodo sinusal → Nodo AV
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>3. Qual é a duração normal do intervalo PR?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
-         0,08 a 0,12 s
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'ciclo-quiz')">
-         0,12 a 0,20 s
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
-         0,20 a 0,30 s
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
-         0,30 a 0,40 s
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>4. Qual é a principal função das artérias?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'ciclo-quiz')">
-         Transportar sangue sob alta pressão até os tecidos
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
-         Retornar sangue ao coração
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
-         Filtrar o sangue
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
-         Produzir células sanguíneas
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>5. Como é caracterizado o sistema venoso?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
-         Alta pressão e paredes grossas
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'ciclo-quiz')">
-         Baixa pressão e paredes finas
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
-         Pressão variável
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'ciclo-quiz')">
-         Sem pressão
-        </div>
-       </div>
-      </div>
-     </div><!-- Quiz Respiratório -->
-     <div id="respiratorio-quiz" class="quiz-section">
-      <div class="quiz-title">
-       🫁 Sistema Respiratório
-      </div>
-      <div class="quiz-question">
-       <h4>1. Qual é a função do nariz interno?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'respiratorio-quiz')">
-         Apenas filtrar o ar
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'respiratorio-quiz')">
-         Aquecer, umidificar e filtrar o ar inalado
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'respiratorio-quiz')">
-         Apenas aquecer o ar
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'respiratorio-quiz')">
-         Produzir muco
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>2. Qual é a função do surfactante pulmonar?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'respiratorio-quiz')">
-         Transportar oxigênio
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'respiratorio-quiz')">
-         Reduzir a tensão superficial e evitar colapso alveolar
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'respiratorio-quiz')">
-         Filtrar partículas
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'respiratorio-quiz')">
-         Produzir anticorpos
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>3. Para que serve o líquido pleural?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'respiratorio-quiz')">
-         Reduzir o atrito entre as pleuras
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'respiratorio-quiz')">
-         Transportar oxigênio
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'respiratorio-quiz')">
-         Filtrar o ar
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'respiratorio-quiz')">
-         Produzir surfactante
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>4. O que acontece no pneumotórax?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'respiratorio-quiz')">
-         Acúmulo de líquido pleural
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'respiratorio-quiz')">
-         Entrada de ar na cavidade pleural e colapso pulmonar
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'respiratorio-quiz')">
-         Inflamação dos brônquios
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'respiratorio-quiz')">
-         Destruição dos alvéolos
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>5. O que caracteriza o enfisema pulmonar?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'respiratorio-quiz')">
-         Acúmulo de líquido nos pulmões
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'respiratorio-quiz')">
-         Destruição das paredes alveolares e menor troca gasosa
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'respiratorio-quiz')">
-         Inflamação dos brônquios
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'respiratorio-quiz')">
-         Estreitamento das vias aéreas
-        </div>
-       </div>
-      </div>
-     </div><!-- Quiz Geral -->
-     <div id="geral-quiz" class="quiz-section">
-      <div class="quiz-title">
-       🧠 Quiz Geral - Desafio Final
-      </div>
-      <div class="quiz-question">
-       <h4>1. Qual estrutura NÃO faz parte da circulação sistêmica?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
-         Veia cava superior
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
-         Valva mitral
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'geral-quiz')">
-         Veia porta hepática
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
-         Artéria aorta
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>2. Qual vantagem do coração artificial brasileiro?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
-         Apenas mais barato
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'geral-quiz')">
-         Mais leve, barato, produção simples e menor risco de rejeição
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
-         Apenas menor risco de rejeição
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
-         Funciona sem energia
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>3. Qual é a principal causa de morte súbita?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
-         Apenas infarto
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'geral-quiz')">
-         Infarto ou arritmia grave
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
-         Apenas arritmia
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
-         Hipertensão
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>4. Qual complicação é comum no tórax de fumantes?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
-         Apenas tosse
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'geral-quiz')">
-         Risco elevado de complicações respiratórias graves
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
-         Apenas falta de ar
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
-         Mudança na voz
-        </div>
-       </div>
-      </div>
-      <div class="quiz-question">
-       <h4>5. Qual alteração cardiovascular NÃO está associada à Síndrome de Marfan?</h4>
-       <div class="quiz-options">
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
-         Dilatação da aorta
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
-         Prolapso da valva mitral
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, true, 'geral-quiz')">
-         Estenose pulmonar
-        </div>
-        <div class="quiz-option" onclick="checkAnswer(this, false, 'geral-quiz')">
-         Risco de aneurisma
-        </div>
-       </div>
-      </div>
-     </div>
-    </section>
-   </main>
-  </div>
-  <script>
-        // Configuração do SDK
-        const defaultConfig = {
-            site_title: "Sistema Cardiovascular e Respiratório",
-            welcome_message: "Explore de forma interativa os sistemas que mantêm a vida funcionando!"
-        };
-
-        let currentSection = 'cardiovascular';
-        let currentQuizSection = 'cardiovascular-quiz';
-        let quizScores = {
-            'cardiovascular-quiz': { score: 0, answered: 0 },
-            'sangue-quiz': { score: 0, answered: 0 },
-            'ciclo-quiz': { score: 0, answered: 0 },
-            'respiratorio-quiz': { score: 0, answered: 0 },
-            'geral-quiz': { score: 0, answered: 0 }
-        };
-        let totalScore = 0;
-        let totalQuestions = 0;
-        let isBreathing = false;
-        let breathingInterval = null;
-
-        // Inicialização do SDK
-        if (window.elementSdk) {
-            window.elementSdk.init({
-                defaultConfig: defaultConfig,
-                onConfigChange: async (config) => {
-                    const titleElement = document.getElementById('siteTitle');
-                    const messageElement = document.getElementById('welcomeMessage');
-                    
-                    if (titleElement) {
-                        titleElement.textContent = config.site_title || defaultConfig.site_title;
-                    }
-                    if (messageElement) {
-                        messageElement.textContent = config.welcome_message || defaultConfig.welcome_message;
-                    }
-                },
-                mapToCapabilities: (config) => ({
-                    recolorables: [],
-                    borderables: [],
-                    fontEditable: undefined,
-                    fontSizeable: undefined
-                }),
-                mapToEditPanelValues: (config) => new Map([
-                    ["site_title", config.site_title || defaultConfig.site_title],
-                    ["welcome_message", config.welcome_message || defaultConfig.welcome_message]
-                ])
-            });
-        }
-
-        function showSection(sectionId) {
-            // Esconder todas as seções
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-
-            // Remover classe active de todos os botões
-            const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(button => {
-                button.classList.remove('active');
-            });
-
-            // Mostrar seção selecionada
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-
-            // Adicionar classe active ao botão clicado
-            const activeButton = event.target;
-            activeButton.classList.add('active');
-
-            currentSection = sectionId;
-            updateProgress();
-        }
-
-        function updateProgress() {
-            const sections = ['cardiovascular', 'sangue', 'ciclo', 'respiratorio', 'quiz'];
-            const currentIndex = sections.indexOf(currentSection);
-            const progress = ((currentIndex + 1) / sections.length) * 100;
-            
-            const progressFill = document.getElementById('progressFill');
-            if (progressFill) {
-                progressFill.style.width = progress + '%';
-            }
-        }
-
-        function animateHeart() {
-            const heart = document.querySelector('.heart-svg');
-            heart.style.animation = 'none';
-            setTimeout(() => {
-                heart.style.animation = 'heartbeat 0.8s ease-in-out 3';
-            }, 10);
-        }
-
-        function checkAnswer(element, isCorrect, quizSection) {
-            // Desabilitar todas as opções da pergunta
-            const question = element.closest('.quiz-question');
-            const options = question.querySelectorAll('.quiz-option');
-            
-            options.forEach(option => {
-                option.style.pointerEvents = 'none';
-                if (option === element) {
-                    if (isCorrect) {
-                        option.classList.add('correct');
-                        quizScores[quizSection].score++;
-                        totalScore++;
-                    } else {
-                        option.classList.add('incorrect');
-                    }
-                } else if (option.onclick.toString().includes('true')) {
-                    option.classList.add('correct');
-                }
-            });
-
-            quizScores[quizSection].answered++;
-            totalQuestions++;
-            updateQuizStats();
-            
-            // Mostrar resultado da seção se todas as 5 questões foram respondidas
-            if (quizScores[quizSection].answered === 5) {
-                setTimeout(() => {
-                    const sectionScore = quizScores[quizSection].score;
-                    const percentage = (sectionScore / 5) * 100;
-                    let message = '';
-                    
-                    if (percentage >= 80) {
-                        message = `🎉 Excelente! Você acertou ${sectionScore}/5 questões (${percentage}%)`;
-                    } else if (percentage >= 60) {
-                        message = `👍 Bom trabalho! Você acertou ${sectionScore}/5 questões (${percentage}%)`;
-                    } else {
-                        message = `📚 Continue estudando! Você acertou ${sectionScore}/5 questões (${percentage}%)`;
-                    }
-                    
-                    const resultDiv = document.createElement('div');
-                    resultDiv.innerHTML = `
-                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                                    color: white; padding: 20px; border-radius: 10px; 
-                                    text-align: center; margin-top: 20px; font-size: 1.2rem;">
-                            ${message}
-                            <br><br>
-                            <button onclick="resetQuizSection('${quizSection}')" style="background: white; color: #667eea; 
-                                    border: none; padding: 10px 20px; border-radius: 5px; 
-                                    cursor: pointer; font-weight: bold; margin-right: 10px;">
-                                Tentar Novamente
-                            </button>
-                            <button onclick="showNextQuizSection()" style="background: #4299e1; color: white; 
-                                    border: none; padding: 10px 20px; border-radius: 5px; 
-                                    cursor: pointer; font-weight: bold;">
-                                Próxima Seção
-                            </button>
-                        </div>
-                    `;
-                    
-                    document.getElementById(quizSection).appendChild(resultDiv);
-                }, 1000);
-            }
-        }
-
-        function showQuizSection(sectionId) {
-            // Esconder todas as seções do quiz
-            const quizSections = document.querySelectorAll('.quiz-section');
-            quizSections.forEach(section => {
-                section.classList.remove('active');
-            });
-
-            // Remover classe active de todos os botões do quiz
-            const quizButtons = document.querySelectorAll('.quiz-nav-btn');
-            quizButtons.forEach(button => {
-                button.classList.remove('active');
-            });
-
-            // Mostrar seção selecionada
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-
-            // Adicionar classe active ao botão clicado
-            const activeButton = event.target;
-            activeButton.classList.add('active');
-
-            currentQuizSection = sectionId;
-        }
-
-        function updateQuizStats() {
-            document.getElementById('totalScore').textContent = totalScore;
-            document.getElementById('totalQuestions').textContent = totalQuestions;
-            
-            const accuracy = totalQuestions > 0 ? Math.round((totalScore / totalQuestions) * 100) : 0;
-            document.getElementById('accuracy').textContent = accuracy + '%';
-        }
-
-        function resetQuizSection(sectionId) {
-            // Resetar pontuação da seção
-            quizScores[sectionId] = { score: 0, answered: 0 };
-            
-            // Recalcular totais
-            totalScore = 0;
-            totalQuestions = 0;
-            Object.values(quizScores).forEach(section => {
-                totalScore += section.score;
-                totalQuestions += section.answered;
-            });
-            
-            updateQuizStats();
-            
-            // Resetar todas as opções da seção
-            const section = document.getElementById(sectionId);
-            const options = section.querySelectorAll('.quiz-option');
-            options.forEach(option => {
-                option.classList.remove('correct', 'incorrect');
-                option.style.pointerEvents = 'auto';
-            });
-            
-            // Remover resultado anterior
-            const existingResult = section.querySelector('div[style*="background: linear-gradient"]');
-            if (existingResult) {
-                existingResult.remove();
-            }
-        }
-
-        function showNextQuizSection() {
-            const sections = ['cardiovascular-quiz', 'sangue-quiz', 'ciclo-quiz', 'respiratorio-quiz', 'geral-quiz'];
-            const currentIndex = sections.indexOf(currentQuizSection);
-            const nextIndex = (currentIndex + 1) % sections.length;
-            
-            // Simular clique no próximo botão
-            const nextButton = document.querySelectorAll('.quiz-nav-btn')[nextIndex];
-            if (nextButton) {
-                nextButton.click();
-            }
-        }
-
-        function animateHeart() {
-            const heart = document.querySelector('.heart-svg');
-            const heartInfo = document.getElementById('heartInfo');
-            const heartRate = document.getElementById('heartRate');
-            
-            heart.style.animation = 'none';
-            setTimeout(() => {
-                heart.style.animation = 'heartbeat 0.6s ease-in-out 5';
-            }, 10);
-            
-            // Mostrar informações do coração
-            heartInfo.style.display = 'block';
-            
-            // Simular variação da frequência cardíaca
-            const rates = [68, 72, 75, 70, 73];
-            let currentRate = 0;
-            const rateInterval = setInterval(() => {
-                heartRate.textContent = rates[currentRate];
-                currentRate = (currentRate + 1) % rates.length;
-            }, 500);
-            
-            setTimeout(() => {
-                clearInterval(rateInterval);
-                heartRate.textContent = '72';
-            }, 3000);
-        }
-
-        function showCirculationFlow() {
-            const flow = document.getElementById('circulationFlow');
-            flow.style.display = 'block';
-            
-            const steps = ['step1', 'step2', 'step3', 'step4', 'step5', 'step6'];
-            let currentStep = 0;
-            
-            // Resetar todos os steps
-            steps.forEach(stepId => {
-                document.getElementById(stepId).classList.remove('active');
-            });
-            
-            const flowInterval = setInterval(() => {
-                // Remover active do step anterior
-                if (currentStep > 0) {
-                    document.getElementById(steps[currentStep - 1]).classList.remove('active');
-                }
-                
-                // Adicionar active ao step atual
-                document.getElementById(steps[currentStep]).classList.add('active');
-                
-                currentStep++;
-                
-                if (currentStep >= steps.length) {
-                    clearInterval(flowInterval);
-                    setTimeout(() => {
-                        steps.forEach(stepId => {
-                            document.getElementById(stepId).classList.remove('active');
-                        });
-                        document.getElementById('step1').classList.add('active');
-                    }, 1000);
-                }
-            }, 800);
-        }
-
-        function toggleBreathingAnimation() {
-            const lungs = document.querySelectorAll('.lung');
-            const breathingText = document.getElementById('breathingText');
-            
-            if (!isBreathing) {
-                isBreathing = true;
-                breathingText.textContent = 'Respirando... (clique para parar)';
-                
-                breathingInterval = setInterval(() => {
-                    lungs.forEach(lung => {
-                        lung.classList.toggle('breathing');
-                    });
-                }, 1500);
-            } else {
-                isBreathing = false;
-                breathingText.textContent = 'Clique para respirar';
-                clearInterval(breathingInterval);
-                
-                lungs.forEach(lung => {
-                    lung.classList.remove('breathing');
-                });
-            }
-        }
-
-        // ===== JOGOS EDUCATIVOS =====
-
-        // Variáveis globais dos jogos
-        let memoryCards = [];
-        let memoryFlippedCards = [];
-        let memoryAttempts = 0;
-        let memoryPairs = 0;
-        let memoryTimer = null;
-        let memoryStartTime = null;
-
-        let heartRateInterval = null;
-        let currentHeartRate = 72;
-
-        let puzzleState = {};
-        let draggedElement = null;
-
-        let wordSearchGrid = [];
-        let wordsFound = 0;
-        let wordSearchWords = ['CORACAO', 'PULMAO', 'SANGUE', 'ARTERIA', 'VEIA'];
-
-        let breathingExerciseInterval = null;
-        let breathingCycles = 0;
-        let breathingStartTime = null;
-        let currentBreathingType = null;
-
-        let speedQuizTimer = null;
-        let speedQuizQuestions = [];
-        let speedQuizCurrentQuestion = 0;
-        let speedQuizScore = 0;
-        let speedQuizTimeLeft = 60;
-
-        // ===== JOGO DA MEMÓRIA =====
-        function startMemoryGame() {
-            const symbols = ['💓', '🫁', '🩸', '🧠', '⚡', '🔬', '💊', '🏥'];
-            const cards = [...symbols, ...symbols]; // Duplicar para pares
-            
-            // Embaralhar cartas
-            for (let i = cards.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [cards[i], cards[j]] = [cards[j], cards[i]];
-            }
-            
-            memoryCards = cards;
-            memoryFlippedCards = [];
-            memoryAttempts = 0;
-            memoryPairs = 0;
-            memoryStartTime = Date.now();
-            
-            const board = document.getElementById('memoryBoard');
-            board.innerHTML = '';
-            
-            cards.forEach((symbol, index) => {
-                const card = document.createElement('div');
-                card.className = 'memory-card';
-                card.dataset.index = index;
-                card.dataset.symbol = symbol;
-                card.textContent = '?';
-                card.onclick = () => flipMemoryCard(index);
-                board.appendChild(card);
-            });
-            
-            updateMemoryStats();
-            
-            // Iniciar timer
-            memoryTimer = setInterval(updateMemoryTimer, 1000);
-        }
-
-        function flipMemoryCard(index) {
-            if (memoryFlippedCards.length >= 2) return;
-            
-            const card = document.querySelector(`[data-index="${index}"]`);
-            if (card.classList.contains('flipped') || card.classList.contains('matched')) return;
-            
-            card.classList.add('flipped');
-            card.textContent = card.dataset.symbol;
-            memoryFlippedCards.push(index);
-            
-            if (memoryFlippedCards.length === 2) {
-                memoryAttempts++;
-                setTimeout(checkMemoryMatch, 1000);
-            }
-        }
-
-        function checkMemoryMatch() {
-            const [first, second] = memoryFlippedCards;
-            const firstCard = document.querySelector(`[data-index="${first}"]`);
-            const secondCard = document.querySelector(`[data-index="${second}"]`);
-            
-            if (firstCard.dataset.symbol === secondCard.dataset.symbol) {
-                firstCard.classList.add('matched');
-                secondCard.classList.add('matched');
-                memoryPairs++;
-                
-                if (memoryPairs === 8) {
-                    clearInterval(memoryTimer);
-                    setTimeout(() => {
-                        const time = Math.floor((Date.now() - memoryStartTime) / 1000);
-                        const message = `🎉 Parabéns! Você completou em ${time}s com ${memoryAttempts} tentativas!`;
-                        const board = document.getElementById('memoryBoard');
-                        board.innerHTML = `<div style="text-align: center; padding: 20px; font-size: 1.2rem;">${message}</div>`;
-                    }, 500);
-                }
-            } else {
-                firstCard.classList.remove('flipped');
-                secondCard.classList.remove('flipped');
-                firstCard.textContent = '?';
-                secondCard.textContent = '?';
-            }
-            
-            memoryFlippedCards = [];
-            updateMemoryStats();
-        }
-
-        function updateMemoryStats() {
-            document.getElementById('memoryAttempts').textContent = memoryAttempts;
-            document.getElementById('memoryPairs').textContent = `${memoryPairs}/8`;
-        }
-
-        function updateMemoryTimer() {
-            if (memoryStartTime) {
-                const elapsed = Math.floor((Date.now() - memoryStartTime) / 1000);
-                const minutes = Math.floor(elapsed / 60);
-                const seconds = elapsed % 60;
-                document.getElementById('memoryTime').textContent = 
-                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            }
-        }
-
-        // ===== SIMULADOR DE BATIMENTOS =====
-        function updateHeartRate(rate) {
-            currentHeartRate = parseInt(rate);
-            document.getElementById('bpmDisplay').textContent = `${currentHeartRate} BPM`;
-            
-            // Atualizar estado e condição
-            let state, condition;
-            if (currentHeartRate < 60) {
-                state = 'Bradicardia';
-                condition = 'Abaixo do normal';
-            } else if (currentHeartRate <= 100) {
-                state = 'Normal';
-                condition = currentHeartRate < 80 ? 'Repouso' : 'Ativo';
-            } else if (currentHeartRate <= 150) {
-                state = 'Taquicardia';
-                condition = 'Exercício leve';
-            } else {
-                state = 'Taquicardia severa';
-                condition = 'Exercício intenso';
-            }
-            
-            document.getElementById('heartState').textContent = state;
-            document.getElementById('heartCondition').textContent = condition;
-            
-            // Atualizar animação do coração
-            const heart = document.getElementById('simHeart');
-            clearInterval(heartRateInterval);
-            
-            const interval = 60000 / currentHeartRate; // ms entre batimentos
-            heart.style.animation = `heartbeat ${interval/1000}s ease-in-out infinite`;
-        }
-
-        // ===== QUEBRA-CABEÇA CIRCULATÓRIO =====
-        function initializePuzzle() {
-            const pieces = document.querySelectorAll('.puzzle-piece');
-            const slots = document.querySelectorAll('.target-slot');
-            
-            pieces.forEach(piece => {
-                piece.addEventListener('dragstart', handleDragStart);
-                piece.addEventListener('dragend', handleDragEnd);
-            });
-            
-            slots.forEach(slot => {
-                slot.addEventListener('dragover', handleDragOver);
-                slot.addEventListener('drop', handleDrop);
-            });
-        }
-
-        function handleDragStart(e) {
-            draggedElement = e.target;
-            e.target.classList.add('dragging');
-        }
-
-        function handleDragEnd(e) {
-            e.target.classList.remove('dragging');
-            draggedElement = null;
-        }
-
-        function handleDragOver(e) {
-            e.preventDefault();
-            e.target.classList.add('drag-over');
-        }
-
-        function handleDrop(e) {
-            e.preventDefault();
-            e.target.classList.remove('drag-over');
-            
-            if (draggedElement && e.target.classList.contains('target-slot')) {
-                const correctValue = e.target.dataset.correct;
-                const pieceValue = draggedElement.dataset.value;
-                
-                if (correctValue === pieceValue) {
-                    e.target.textContent = draggedElement.textContent;
-                    e.target.classList.add('filled');
-                    draggedElement.style.display = 'none';
-                    
-                    checkPuzzleCompletion();
-                } else {
-                    // Feedback visual de erro
-                    e.target.style.background = 'rgba(244, 67, 54, 0.6)';
-                    setTimeout(() => {
-                        e.target.style.background = '';
-                    }, 500);
-                }
-            }
-        }
-
-        function checkPuzzleCompletion() {
-            const filledSlots = document.querySelectorAll('.target-slot.filled');
-            if (filledSlots.length === 6) {
-                document.getElementById('puzzleResult').innerHTML = 
-                    '🎉 Parabéns! Você montou corretamente o ciclo circulatório!';
-            }
-        }
-
-        function resetPuzzle() {
-            const slots = document.querySelectorAll('.target-slot');
-            const pieces = document.querySelectorAll('.puzzle-piece');
-            
-            slots.forEach((slot, index) => {
-                slot.classList.remove('filled');
-                slot.textContent = index === 0 ? '1. Início' : index === 5 ? '6. Final' : `${index + 1}. ?`;
-            });
-            
-            pieces.forEach(piece => {
-                piece.style.display = 'block';
-            });
-            
-            document.getElementById('puzzleResult').innerHTML = '';
-        }
-
-        // ===== CAÇA-PALAVRAS =====
-        function generateWordSearch() {
-            const gridSize = 10;
-            wordSearchGrid = Array(gridSize).fill().map(() => Array(gridSize).fill(''));
-            wordsFound = 0;
-            
-            // Colocar palavras na grade
-            wordSearchWords.forEach(word => {
-                placeWordInGrid(word, gridSize);
-            });
-            
-            // Preencher espaços vazios com letras aleatórias
-            for (let i = 0; i < gridSize; i++) {
-                for (let j = 0; j < gridSize; j++) {
-                    if (wordSearchGrid[i][j] === '') {
-                        wordSearchGrid[i][j] = String.fromCharCode(65 + Math.floor(Math.random() * 26));
-                    }
-                }
-            }
-            
-            // Renderizar grade
-            const grid = document.getElementById('wordGrid');
-            grid.innerHTML = '';
-            
-            for (let i = 0; i < gridSize; i++) {
-                for (let j = 0; j < gridSize; j++) {
-                    const cell = document.createElement('div');
-                    cell.className = 'word-cell';
-                    cell.textContent = wordSearchGrid[i][j];
-                    cell.dataset.row = i;
-                    cell.dataset.col = j;
-                    cell.onclick = () => selectWordCell(i, j);
-                    grid.appendChild(cell);
-                }
-            }
-            
-            // Resetar lista de palavras
-            document.querySelectorAll('.word-item').forEach(item => {
-                item.classList.remove('found');
-            });
-            
-            updateWordSearchScore();
-        }
-
-        function placeWordInGrid(word, gridSize) {
-            const directions = [
-                [0, 1],   // horizontal
-                [1, 0],   // vertical
-                [1, 1],   // diagonal
-                [-1, 1]   // diagonal reversa
-            ];
-            
-            let placed = false;
-            let attempts = 0;
-            
-            while (!placed && attempts < 100) {
-                const direction = directions[Math.floor(Math.random() * directions.length)];
-                const startRow = Math.floor(Math.random() * gridSize);
-                const startCol = Math.floor(Math.random() * gridSize);
-                
-                if (canPlaceWord(word, startRow, startCol, direction, gridSize)) {
-                    for (let i = 0; i < word.length; i++) {
-                        const row = startRow + i * direction[0];
-                        const col = startCol + i * direction[1];
-                        wordSearchGrid[row][col] = word[i];
-                    }
-                    placed = true;
-                }
-                attempts++;
-            }
-        }
-
-        function canPlaceWord(word, startRow, startCol, direction, gridSize) {
-            for (let i = 0; i < word.length; i++) {
-                const row = startRow + i * direction[0];
-                const col = startCol + i * direction[1];
-                
-                if (row < 0 || row >= gridSize || col < 0 || col >= gridSize) {
-                    return false;
-                }
-                
-                if (wordSearchGrid[row][col] !== '' && wordSearchGrid[row][col] !== word[i]) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        function selectWordCell(row, col) {
-            const cell = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-            cell.classList.toggle('selected');
-            
-            // Verificar se uma palavra foi selecionada
-            checkSelectedWord();
-        }
-
-        function checkSelectedWord() {
-            const selectedCells = document.querySelectorAll('.word-cell.selected');
-            const selectedText = Array.from(selectedCells).map(cell => cell.textContent).join('');
-            
-            wordSearchWords.forEach(word => {
-                if (selectedText === word || selectedText === word.split('').reverse().join('')) {
-                    selectedCells.forEach(cell => {
-                        cell.classList.remove('selected');
-                        cell.classList.add('found');
-                    });
-                    
-                    const wordItem = document.querySelector(`[data-word="${word}"]`);
-                    if (wordItem && !wordItem.classList.contains('found')) {
-                        wordItem.classList.add('found');
-                        wordsFound++;
-                        updateWordSearchScore();
-                        
-                        if (wordsFound === wordSearchWords.length) {
-                            setTimeout(() => {
-                                const grid = document.getElementById('wordGrid');
-                                grid.innerHTML += '<div style="grid-column: 1/-1; text-align: center; padding: 20px; font-size: 1.2rem;">🎉 Parabéns! Todas as palavras encontradas!</div>';
-                            }, 500);
-                        }
-                    }
-                }
-            });
-        }
-
-        function updateWordSearchScore() {
-            document.getElementById('wordsFound').textContent = `${wordsFound}/${wordSearchWords.length}`;
-        }
-
-        // ===== SIMULADOR DE RESPIRAÇÃO =====
-        function startBreathingExercise(type) {
-            stopBreathingExercise();
-            
-            currentBreathingType = type;
-            breathingCycles = 0;
-            breathingStartTime = Date.now();
-            
-            const circle = document.getElementById('breathingCircle');
-            const instruction = document.getElementById('breathingInstruction');
-            
-            let inhaleTime, holdTime, exhaleTime;
-            
-            if (type === 'calm') {
-                inhaleTime = 4000;
-                holdTime = 4000;
-                exhaleTime = 4000;
-            } else { // energy
-                inhaleTime = 4000;
-                holdTime = 2000;
-                exhaleTime = 6000;
-            }
-            
-            function breatheCycle() {
-                // Inspirar
-                instruction.textContent = 'Inspire...';
-                circle.classList.add('inhale');
-                circle.classList.remove('exhale');
-                
-                setTimeout(() => {
-                    // Segurar
-                    instruction.textContent = 'Segure...';
-                    circle.classList.remove('inhale');
-                    
-                    setTimeout(() => {
-                        // Expirar
-                        instruction.textContent = 'Expire...';
-                        circle.classList.add('exhale');
-                        
-                        setTimeout(() => {
-                            circle.classList.remove('exhale');
-                            breathingCycles++;
-                            updateBreathingStats();
-                            
-                            if (breathingExerciseInterval) {
-                                breatheCycle();
-                            }
-                        }, exhaleTime);
-                    }, holdTime);
-                }, inhaleTime);
-            }
-            
-            breathingExerciseInterval = true;
-            breatheCycle();
-        }
-
-        function stopBreathingExercise() {
-            breathingExerciseInterval = null;
-            const circle = document.getElementById('breathingCircle');
-            const instruction = document.getElementById('breathingInstruction');
-            
-            circle.classList.remove('inhale', 'exhale');
-            instruction.textContent = 'Clique para começar';
-        }
-
-        function updateBreathingStats() {
-            document.getElementById('breathingCycles').textContent = breathingCycles;
-            
-            if (breathingStartTime) {
-                const elapsed = Math.floor((Date.now() - breathingStartTime) / 1000);
-                const minutes = Math.floor(elapsed / 60);
-                const seconds = elapsed % 60;
-                document.getElementById('breathingTotalTime').textContent = 
-                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            }
-        }
-
-        // ===== QUIZ RELÂMPAGO =====
-        function initializeSpeedQuiz() {
-            speedQuizQuestions = [
-                {
-                    question: "Qual é a função principal do coração?",
-                    options: ["Filtrar sangue", "Bombear sangue", "Produzir sangue", "Armazenar sangue"],
-                    correct: 1
-                },
-                {
-                    question: "Quantas câmaras tem o coração humano?",
-                    options: ["2", "3", "4", "5"],
-                    correct: 2
-                },
-                {
-                    question: "Qual gás é transportado pelos glóbulos vermelhos?",
-                    options: ["Nitrogênio", "Oxigênio", "Hidrogênio", "Carbono"],
-                    correct: 1
-                },
-                {
-                    question: "Onde ocorre a troca gasosa nos pulmões?",
-                    options: ["Brônquios", "Traqueia", "Alvéolos", "Bronquíolos"],
-                    correct: 2
-                },
-                {
-                    question: "Qual é a frequência cardíaca normal em repouso?",
-                    options: ["40-60 bpm", "60-100 bpm", "100-120 bpm", "120-140 bpm"],
-                    correct: 1
-                },
-                {
-                    question: "Qual valva separa o átrio esquerdo do ventrículo esquerdo?",
-                    options: ["Tricúspide", "Pulmonar", "Mitral", "Aórtica"],
-                    correct: 2
-                },
-                {
-                    question: "O que é hemoglobina?",
-                    options: ["Proteína que transporta oxigênio", "Tipo de célula", "Hormônio", "Enzima"],
-                    correct: 0
-                },
-                {
-                    question: "Qual é o maior vaso sanguíneo do corpo?",
-                    options: ["Veia cava", "Artéria pulmonar", "Aorta", "Artéria carótida"],
-                    correct: 2
-                }
-            ];
-        }
-
-        function startSpeedQuiz() {
-            speedQuizScore = 0;
-            speedQuizTimeLeft = 60;
-            speedQuizCurrentQuestion = 0;
-            
-            document.getElementById('speedScore').textContent = speedQuizScore;
-            document.getElementById('timerDisplay').textContent = speedQuizTimeLeft;
-            document.getElementById('speedQuizBtn').style.display = 'none';
-            document.getElementById('speedQuestion').style.display = 'block';
-            document.getElementById('speedResult').innerHTML = '';
-            
-            // Embaralhar questões
-            for (let i = speedQuizQuestions.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [speedQuizQuestions[i], speedQuizQuestions[j]] = [speedQuizQuestions[j], speedQuizQuestions[i]];
-            }
-            
-            showSpeedQuestion();
-            
-            speedQuizTimer = setInterval(() => {
-                speedQuizTimeLeft--;
-                document.getElementById('timerDisplay').textContent = speedQuizTimeLeft;
-                
-                if (speedQuizTimeLeft <= 10) {
-                    document.querySelector('.timer-circle').classList.add('warning');
-                }
-                
-                if (speedQuizTimeLeft <= 0) {
-                    endSpeedQuiz();
-                }
-            }, 1000);
-        }
-
-        function showSpeedQuestion() {
-            if (speedQuizCurrentQuestion >= speedQuizQuestions.length) {
-                speedQuizCurrentQuestion = 0; // Recomeçar questões
-            }
-            
-            const question = speedQuizQuestions[speedQuizCurrentQuestion];
-            document.getElementById('speedQuestionText').textContent = question.question;
-            
-            const optionsContainer = document.getElementById('speedOptions');
-            optionsContainer.innerHTML = '';
-            
-            question.options.forEach((option, index) => {
-                const optionElement = document.createElement('div');
-                optionElement.className = 'speed-option';
-                optionElement.textContent = option;
-                optionElement.onclick = () => answerSpeedQuestion(index, question.correct);
-                optionsContainer.appendChild(optionElement);
-            });
-        }
-
-        function answerSpeedQuestion(selectedIndex, correctIndex) {
-            const options = document.querySelectorAll('.speed-option');
-            
-            options.forEach((option, index) => {
-                option.onclick = null; // Desabilitar cliques
-                if (index === correctIndex) {
-                    option.classList.add('correct');
-                } else if (index === selectedIndex) {
-                    option.classList.add('incorrect');
-                }
-            });
-            
-            if (selectedIndex === correctIndex) {
-                speedQuizScore++;
-                document.getElementById('speedScore').textContent = speedQuizScore;
-            }
-            
-            setTimeout(() => {
-                speedQuizCurrentQuestion++;
-                showSpeedQuestion();
-            }, 1000);
-        }
-
-        function endSpeedQuiz() {
-            clearInterval(speedQuizTimer);
-            document.querySelector('.timer-circle').classList.remove('warning');
-            document.getElementById('speedQuestion').style.display = 'none';
-            document.getElementById('speedQuizBtn').style.display = 'block';
-            document.getElementById('speedQuizBtn').textContent = '🚀 Jogar Novamente';
-            
-            let message = '';
-            if (speedQuizScore >= 15) {
-                message = `🏆 Excelente! ${speedQuizScore} pontos - Você é um expert!`;
-            } else if (speedQuizScore >= 10) {
-                message = `👍 Muito bom! ${speedQuizScore} pontos - Continue estudando!`;
-            } else if (speedQuizScore >= 5) {
-                message = `📚 Bom esforço! ${speedQuizScore} pontos - Pratique mais!`;
-            } else {
-                message = `💪 Continue tentando! ${speedQuizScore} pontos - Você vai melhorar!`;
-            }
-            
-            document.getElementById('speedResult').innerHTML = message;
-        }
-
-        // Inicializar jogos quando a página carregar
-        document.addEventListener('DOMContentLoaded', function() {
-            initializePuzzle();
-            initializeSpeedQuiz();
-            generateWordSearch();
-        });
-
-        // Atualizar lista de seções para incluir jogos
-        function updateProgress() {
-            const sections = ['cardiovascular', 'sangue', 'ciclo', 'respiratorio', 'jogos', 'quiz'];
-            const currentIndex = sections.indexOf(currentSection);
-            const progress = ((currentIndex + 1) / sections.length) * 100;
-            
-            const progressFill = document.getElementById('progressFill');
-            if (progressFill) {
-                progressFill.style.width = progress + '%';
-            }
-        }
-
-        // Função para expandir cards
-        function expandCard(card) {
-            const expandedContent = card.querySelector('.expanded-content');
-            const cardAction = card.querySelector('.card-action');
-            
-            if (expandedContent.style.display === 'none') {
-                expandedContent.style.display = 'block';
-                expandedContent.style.animation = 'fadeIn 0.5s ease-in';
-                cardAction.textContent = 'Recolher';
-                card.style.minHeight = 'auto';
-            } else {
-                expandedContent.style.display = 'none';
-                cardAction.textContent = cardAction.textContent.includes('Explorar') ? 'Explorar' : 
-                                       cardAction.textContent.includes('Ver') ? 'Ver Fluxo' :
-                                       cardAction.textContent.includes('Detalhes') ? 'Detalhes' :
-                                       cardAction.textContent.includes('Escutar') ? 'Escutar' :
-                                       cardAction.textContent.includes('Estudar') ? 'Estudar' : 'Genética';
-                card.style.minHeight = '280px';
-            }
-        }
-
-        // Inicializar progresso
-        updateProgress();
-        updateQuizStats();
-    </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99e987298783f1f3',t:'MTc2MzE1NDk2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  <script src="script.js"></script>
+  <script src="outra.js"></script>
+</body>
 </html>
